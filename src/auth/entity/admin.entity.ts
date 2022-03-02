@@ -1,13 +1,17 @@
-import { Column, Entity, JoinColumn, OneToOne } from "typeorm";
+import { Column, Entity, JoinColumn, OneToOne, Unique } from "typeorm";
 import { BaseUser } from "./baseuser.entity";
 
-@Entity()
+@Entity({name: "Admin"})
 export class Admin {
-    @OneToOne(() => BaseUser, {primary: true})
+    @OneToOne(() => BaseUser, {primary: true, eager: true, onDelete: "CASCADE"})
     @JoinColumn()
     baseUser: BaseUser;
 
-    @Column()
+    get id(): number {
+        return this.baseUser.id
+    }
+
+    @Column({unique: true})
     email: string;
 
     @Column()
