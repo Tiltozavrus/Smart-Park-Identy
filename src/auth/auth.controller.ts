@@ -1,14 +1,21 @@
-import { ArgumentsHost, BadRequestException, Body, CallHandler, Catch, Controller, Delete, ExceptionFilter, ExecutionContext, Get, HttpCode, NestInterceptor, NotFoundException, Param, Post, UseFilters, UseInterceptors } from '@nestjs/common';
+import { ArgumentsHost, BadRequestException, Body, CallHandler, Catch, Controller, Delete, ExceptionFilter, ExecutionContext, Get, HttpCode, NestInterceptor, NotFoundException, Param, Post, Put, UseFilters, UseInterceptors,  UnauthorizedException} from '@nestjs/common';
 import { ApiBody, ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { catchError, Observable } from 'rxjs';
 import { AuthService, AuthServiceExceptions } from './auth.service';
 import { CreateUserDto, UserCreateResp } from './dto';
+import { CheckTokenDto } from './dto/check-token.dto';
 import { CreateAdminDto, CreateAdminResp } from './dto/create-admin.dto';
+import { CreateTokenResp } from './dto/create-token.dto';
 import { GetAdminResp } from './dto/get-admin.dto';
 import { GetUsersResp } from './dto/get-user.dto';
+import { LoginAdminDto } from './dto/login-admin.dto';
+import { LoginUserDto } from './dto/login-user.dto';
+import { RefreshTokenDto } from './dto/refresh-token.dto';
+import { UpdateAdminDto } from './dto/update-admin.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entity';
 
-class AuthControllerErrorInterceptor implements NestInterceptor {
+class AuthControllerEdrrorInterceptor implements NestInterceptor {
     intercept(context: ExecutionContext, next: CallHandler<any>): Observable<any> | Promise<Observable<any>> {
         return next.handle()
             .pipe(
@@ -17,10 +24,25 @@ class AuthControllerErrorInterceptor implements NestInterceptor {
                         switch(err) {
                             case AuthServiceExceptions.UserExist:
                                 throw new BadRequestException("User Exist")
+
                             case AuthServiceExceptions.UserNotFound:
                                 throw new NotFoundException("User not found")
+
                             case AuthServiceExceptions.AdminExist:
                                 throw new BadRequestException("Admin Exist")
+
+                            case AuthServiceExceptions.AdminFailedAuth:
+                                throw new BadRequestException("Failed to auth")
+
+                            case AuthServiceExceptions.UserFailedAuth:
+                                throw new BadRequestException("Failed to auth")
+
+                            case AuthServiceExceptions.InvalidToken:
+                                throw new UnauthorizedException("Invalid token")
+
+                            case AuthServiceExceptions.TokenExpired:
+                                throw new UnauthorizedException("Token expired")
+
                             default:
                                 throw err
                         }
@@ -31,7 +53,7 @@ class AuthControllerErrorInterceptor implements NestInterceptor {
 
 }
 
-@UseInterceptors(AuthControllerErrorInterceptor)
+@UseInterceptors(AuthControllerEdrrorInterceptor)
 @ApiTags('auth')
 @Controller('auth')
 export class AuthController {
@@ -70,6 +92,17 @@ export class AuthController {
         )
     }
 
+    @Put("/user/:id")
+    @ApiOperation({summary: "update user"})
+    @ApiParam({type: Number, name: "id", description: "id of user"})
+    @ApiBody({type: UpdateUserDto, description: "body"})
+    @ApiResponse({status: 200, description: "user updatet", type: GetUsersResp})
+    @ApiResponse({status: 404, description: "User not found"})
+    @ApiResponse({status: 400, description: "User with this phone number exist"})
+    async updateUser(@Param("id") id: number, @Body() req: UpdateUserDto): Promise<GetUsersResp> {
+        return new GetUsersResp(await this.authService.updateUser(id, req))
+    }
+
     @Post("/admin")
     @ApiOperation({summary: "create admin"})
     @ApiResponse({status: 400, description: "admin exist"})
@@ -78,6 +111,17 @@ export class AuthController {
     @ApiBody({type: CreateAdminDto})
     async createAdmin(@Body() req: CreateAdminDto): Promise<CreateAdminResp> {
         return new CreateAdminResp(await this.authService.createAdmin(req))
+    }
+
+    @Put("/admin/:id")
+    @ApiOperation({summary: "update admin"})
+    @ApiParam({type: Number, name: "id", description: "id of admin"})
+    @ApiBody({type: UpdateAdminDto, description: "body"})
+    @ApiResponse({status: 200, description: "admin updated", type: GetAdminResp})
+    @ApiResponse({status: 404, description: "Admin not found"})
+    @ApiResponse({status: 400, description: "Admin with this email bad request"})
+    async updateAdmin(@Param("id") id: number, @Body() req: UpdateAdminDto) {
+        return new GetAdminResp(await this.authService.updateAdmin(id, req))
     }
 
     @Delete("/admin/:id")
@@ -102,5 +146,47 @@ export class AuthController {
             }
         )
     }
+
+    @Post("/testSms/:phone")
+    @ApiParam({name: "phone", type: String})
+    async createSms(@Param("phone") phone) {
+        return await this.authService.createSmsCode(phone)
+    }
+
+    @Post("/admin/login")
+    @ApiResponse({type: CreateTokenResp, status: 201})
+    @ApiResponse({status: 400, description: "failed auth"})
+    @ApiBody({type: LoginAdminDto, description: "body"})
+    async loginAdmin(@Body() req: LoginAdminDto): Promise<CreateTokenResp> {
+        const tokens = await this.authService.loginAdmin(req.email, req.password)
+
+        return tokens
+    }
     
+    @Post("/user/login")
+    @ApiBody({type: LoginUserDto})
+    @ApiResponse({status: 201, type: CreateTokenResp})
+    @ApiResponse({status: 400, description: "failed to auth"})
+    async loginUser(@Body() req: LoginUserDto): Promise<CreateTokenResp> {
+        const tokens = await this.authService.loginUser(req.phoneNumber, req.code)
+
+        return tokens
+    }
+
+    @Post("/checkToken")
+    @ApiBody({type: CheckTokenDto})
+    @ApiResponse({status: 200})
+    @ApiResponse({status: 401, description: "Not Authorizated"})
+    @HttpCode(200)
+    async checkToken(@Body() req: CheckTokenDto) {
+        this.authService.decodeToken(req.token)
+    }
+
+    @Post("/refreshToken")
+    @ApiBody({type: RefreshTokenDto})
+    @ApiResponse({status: 201, type: CreateTokenResp})
+    @ApiResponse({status: 401, description: "Not Authorizated"})
+    async refreshToken(@Body() req: RefreshTokenDto): Promise<CreateTokenResp> {
+        return this.authService.refreshToken(req.refreshToken)
+    }
 }

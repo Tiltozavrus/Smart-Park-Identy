@@ -1,9 +1,10 @@
 import { Column, Entity, JoinColumn, OneToOne } from "typeorm";
 import { BaseUser } from "./baseuser.entity";
+import { UserSmsCode } from "./user_sms_code.entity";
 
 @Entity({name: "User"})
 export class User {
-    @OneToOne(() => BaseUser, {primary: true, onDelete: "CASCADE", eager: true})
+    @OneToOne(() => BaseUser, type => type, {primary: true, onDelete: "CASCADE", eager: true})
     @JoinColumn()
     baseUser: BaseUser;
 

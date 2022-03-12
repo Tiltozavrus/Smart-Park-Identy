@@ -3,7 +3,7 @@ import { BaseUser } from "./baseuser.entity";
 
 @Entity({name: "Admin"})
 export class Admin {
-    @OneToOne(() => BaseUser, {primary: true, eager: true, onDelete: "CASCADE"})
+    @OneToOne(() => BaseUser, {primary: true, eager: true, onDelete: "CASCADE", onUpdate: "CASCADE", })
     @JoinColumn()
     baseUser: BaseUser;
 
