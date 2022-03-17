@@ -21,7 +21,8 @@ export const AuthServiceExceptions = {
     AdminFailedAuth: Error("admin failed auth"),
     UserFailedAuth: Error("User failed auth"),
     InvalidToken: Error("Invalid token"),
-    TokenExpired: Error("Token expired")
+    TokenExpired: Error("Token expired"),
+    TokenNotFound: Error("Token not found")
 }
 
 export interface CreatedTokens {

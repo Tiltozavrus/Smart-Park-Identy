@@ -3,8 +3,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import {Admin, BaseUser, User} from './entity'
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { UserSmsCode } from './entity/user_sms_code.entity';
+import { RolesGuard } from './roles.guard';
+import { PassportModule } from '@nestjs/passport';
+import { JwtModule } from '@nestjs/jwt';
 
 
 @Module({
@@ -12,7 +15,7 @@ import { UserSmsCode } from './entity/user_sms_code.entity';
         TypeOrmModule.forFeature([BaseUser, User, Admin, UserSmsCode]),
         ConfigModule,
     ],
-    providers: [AuthService],
+    providers: [AuthService, RolesGuard],
     controllers: [AuthController]
 })
 export class AuthModule {}
