@@ -1,0 +1,1484 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>smart-parking-identy documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">smart-parking-identy documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content controller">
+                   <div class="content-data">
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Controllers</li>
+  <li >AuthController</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/auth/auth.controller.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Prefix</h3>
+            </p>
+            <p class="comment">
+                <code>auth</code>
+            </p>
+
+
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#checkToken" >checkToken</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#createAdmin" >createAdmin</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#createSms" >createSms</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#createUser" >createUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteAdmin" >deleteAdmin</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteUser" >deleteUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getAdmins" >getAdmins</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getUser" >getUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#loginAdmin" >loginAdmin</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#loginUser" >loginUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#refreshToken" >refreshToken</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateAdmin" >updateAdmin</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateUser" >updateUser</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkToken"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>checkToken</b></span>
+                        <a href="#checkToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>checkToken(req: <a href="../classes/CheckTokenDto.html" target="_self">CheckTokenDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;/checkToken&#x27;)<br />@ApiBody({type: CheckTokenDto})<br />@ApiResponse({status: 200})<br />@ApiResponse({status: 401, description: &#x27;Not Authorizated&#x27;})<br />@HttpCode(200)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="267"
+                            class="link-to-prism">src/auth/auth.controller.ts:267</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>req</td>
+                                    <td>
+                                                <code><a href="../classes/CheckTokenDto.html" target="_self" >CheckTokenDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createAdmin"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>createAdmin</b></span>
+                        <a href="#createAdmin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createAdmin(req: <a href="../classes/CreateAdminDto.html" target="_self">CreateAdminDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;/admin&#x27;)<br />@Roles(Role.Admin)<br />@UseGuards(RolesGuard)<br />@ApiOperation({summary: &#x27;create admin&#x27;})<br />@ApiResponse({status: 400, description: &#x27;admin exist&#x27;})<br />@ApiResponse({status: 403, description: &#x27;You are not admin&#x27;})<br />@ApiResponse({status: 201, description: &#x27;Admin created&#x27;, type: CreateAdminResp})<br />@ApiBody({type: CreateAdminDto})<br />@ApiBearerAuth()<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="189"
+                            class="link-to-prism">src/auth/auth.controller.ts:189</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>req</td>
+                                    <td>
+                                                <code><a href="../classes/CreateAdminDto.html" target="_self" >CreateAdminDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/CreateAdminResp.html" target="_self" >Promise&lt;CreateAdminResp&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createSms"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>createSms</b></span>
+                        <a href="#createSms"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createSms(phone)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;/testSms/:phone&#x27;)<br />@ApiParam({name: &#x27;phone&#x27;, type: String})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="238"
+                            class="link-to-prism">src/auth/auth.controller.ts:238</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>phone</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createUser"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>createUser</b></span>
+                        <a href="#createUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createUser(createUserDto: <a href="../classes/CreateUserDto.html" target="_self">CreateUserDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;/user&#x27;)<br />@Roles(Role.Admin)<br />@UseGuards(RolesGuard)<br />@ApiOperation({summary: &#x27;Create user&#x27;})<br />@ApiResponse({status: 400, description: &#x27;User exist&#x27;})<br />@ApiResponse({status: 403, description: &#x27;You are not admin&#x27;})<br />@ApiResponse({status: 201, description: &#x27;User created&#x27;, type: UserCreateResp})<br />@ApiBody({type: CreateUserDto})<br />@ApiBearerAuth()<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="133"
+                            class="link-to-prism">src/auth/auth.controller.ts:133</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>createUserDto</td>
+                                    <td>
+                                                <code><a href="../classes/CreateUserDto.html" target="_self" >CreateUserDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/UserCreateResp.html" target="_self" >Promise&lt;UserCreateResp&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteAdmin"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>deleteAdmin</b></span>
+                        <a href="#deleteAdmin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteAdmin(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Delete(&#x27;/admin/:id&#x27;)<br />@Roles(Role.Admin)<br />@UseGuards(RolesGuard)<br />@ApiOperation({summary: &#x27;delete admin&#x27;})<br />@ApiResponse({status: 404, description: &#x27;Admin not found&#x27;})<br />@ApiResponse({status: 200, description: &#x27;Admin deleted&#x27;})<br />@ApiParam({type: Number, description: &#x27;id of admin&#x27;, name: &#x27;id&#x27;})<br />@ApiBearerAuth()<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="215"
+                            class="link-to-prism">src/auth/auth.controller.ts:215</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteUser"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>deleteUser</b></span>
+                        <a href="#deleteUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteUser(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Delete(&#x27;/user/:id&#x27;)<br />@Roles(Role.Admin)<br />@UseGuards(RolesGuard)<br />@ApiOperation({summary: &#x27;Delete user&#x27;})<br />@ApiResponse({status: 404, description: &#x27;User not found&#x27;})<br />@ApiResponse({status: 200, description: &#x27;User deleted&#x27;})<br />@ApiParam({type: Number, description: &#x27;id of user&#x27;, name: &#x27;id&#x27;})<br />@ApiBearerAuth()<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="145"
+                            class="link-to-prism">src/auth/auth.controller.ts:145</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAdmins"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getAdmins</b></span>
+                        <a href="#getAdmins"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getAdmins()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;/admin&#x27;)<br />@Roles(Role.Admin)<br />@UseGuards(RolesGuard)<br />@ApiOperation({summary: &#x27;Get admins&#x27;})<br />@ApiResponse({status: 200, description: &#x27;&#x27;, type: undefined})<br />@ApiBearerAuth()<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="228"
+                            class="link-to-prism">src/auth/auth.controller.ts:228</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GetAdminResp.html" target="_self" >Promise&lt;GetAdminResp[]&gt;</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUser"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getUser</b></span>
+                        <a href="#getUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getUser()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;/user&#x27;)<br />@Roles(Role.Admin)<br />@UseGuards(RolesGuard)<br />@ApiOperation({summary: &#x27;get users&#x27;})<br />@ApiResponse({status: 200, description: &#x27;&#x27;, type: undefined})<br />@ApiBearerAuth()<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="158"
+                            class="link-to-prism">src/auth/auth.controller.ts:158</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GetUsersResp.html" target="_self" >Promise&lt;GetUsersResp[]&gt;</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loginAdmin"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>loginAdmin</b></span>
+                        <a href="#loginAdmin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loginAdmin(req: <a href="../classes/LoginAdminDto.html" target="_self">LoginAdminDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;/admin/login&#x27;)<br />@ApiResponse({type: CreateTokenResp, status: 201})<br />@ApiResponse({status: 400, description: &#x27;failed auth&#x27;})<br />@ApiBody({type: LoginAdminDto, description: &#x27;body&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="246"
+                            class="link-to-prism">src/auth/auth.controller.ts:246</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>req</td>
+                                    <td>
+                                                <code><a href="../classes/LoginAdminDto.html" target="_self" >LoginAdminDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/CreateTokenResp.html" target="_self" >Promise&lt;CreateTokenResp&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loginUser"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>loginUser</b></span>
+                        <a href="#loginUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loginUser(req: <a href="../classes/LoginUserDto.html" target="_self">LoginUserDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;/user/login&#x27;)<br />@ApiBody({type: LoginUserDto})<br />@ApiResponse({status: 201, type: CreateTokenResp})<br />@ApiResponse({status: 400, description: &#x27;failed to auth&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="256"
+                            class="link-to-prism">src/auth/auth.controller.ts:256</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>req</td>
+                                    <td>
+                                                <code><a href="../classes/LoginUserDto.html" target="_self" >LoginUserDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/CreateTokenResp.html" target="_self" >Promise&lt;CreateTokenResp&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refreshToken"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>refreshToken</b></span>
+                        <a href="#refreshToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>refreshToken(req: <a href="../classes/RefreshTokenDto.html" target="_self">RefreshTokenDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;/refreshToken&#x27;)<br />@ApiBody({type: RefreshTokenDto})<br />@ApiResponse({status: 201, type: CreateTokenResp})<br />@ApiResponse({status: 401, description: &#x27;Not Authorizated&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="275"
+                            class="link-to-prism">src/auth/auth.controller.ts:275</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>req</td>
+                                    <td>
+                                                <code><a href="../classes/RefreshTokenDto.html" target="_self" >RefreshTokenDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/CreateTokenResp.html" target="_self" >Promise&lt;CreateTokenResp&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateAdmin"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>updateAdmin</b></span>
+                        <a href="#updateAdmin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateAdmin(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, req: <a href="../classes/UpdateAdminDto.html" target="_self">UpdateAdminDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Put(&#x27;/admin/:id&#x27;)<br />@Roles(Role.Admin)<br />@UseGuards(RolesGuard)<br />@ApiOperation({summary: &#x27;update admin&#x27;})<br />@ApiParam({type: Number, name: &#x27;id&#x27;, description: &#x27;id of admin&#x27;})<br />@ApiBody({type: UpdateAdminDto, description: &#x27;body&#x27;})<br />@ApiResponse({status: 200, description: &#x27;admin updated&#x27;, type: GetAdminResp})<br />@ApiResponse({status: 404, description: &#x27;Admin not found&#x27;})<br />@ApiResponse({status: 400, description: &#x27;Admin with this email bad request&#x27;})<br />@ApiBearerAuth()<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="203"
+                            class="link-to-prism">src/auth/auth.controller.ts:203</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>req</td>
+                                    <td>
+                                                <code><a href="../classes/UpdateAdminDto.html" target="_self" >UpdateAdminDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateUser"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>updateUser</b></span>
+                        <a href="#updateUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateUser(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, req: <a href="../classes/UpdateUserDto.html" target="_self">UpdateUserDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Put(&#x27;/user/:id&#x27;)<br />@Roles(Role.Admin)<br />@UseGuards(RolesGuard)<br />@ApiOperation({summary: &#x27;update user&#x27;})<br />@ApiParam({type: Number, name: &#x27;id&#x27;, description: &#x27;id of user&#x27;})<br />@ApiBody({type: UpdateUserDto, description: &#x27;body&#x27;})<br />@ApiResponse({status: 200, description: &#x27;user updatet&#x27;, type: GetUsersResp})<br />@ApiResponse({status: 404, description: &#x27;User not found&#x27;})<br />@ApiResponse({status: 400, description: &#x27;User with this phone number exist&#x27;})<br />@ApiBearerAuth()<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="176"
+                            class="link-to-prism">src/auth/auth.controller.ts:176</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>req</td>
+                                    <td>
+                                                <code><a href="../classes/UpdateUserDto.html" target="_self" >UpdateUserDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GetUsersResp.html" target="_self" >Promise&lt;GetUsersResp&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ArgumentsHost, BadRequestException, Body, CallHandler, Catch, Controller, Delete, ExceptionFilter, ExecutionContext, Get, HttpCode, NestInterceptor, NotFoundException, Param, Post, Put, UseFilters, UseInterceptors,  UnauthorizedException, UseGuards, HttpException, HttpStatus} from &#x27;@nestjs/common&#x27;;
+import { HttpAdapterHost } from &#x27;@nestjs/core&#x27;;
+import { ApiBearerAuth, ApiBody, ApiOperation, ApiParam, ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
+import e &#x3D; require(&#x27;express&#x27;);
+import { catchError, Observable } from &#x27;rxjs&#x27;;
+import { AuthService, AuthServiceExceptions } from &#x27;./auth.service&#x27;;
+import { CreateUserDto, UserCreateResp } from &#x27;./dto&#x27;;
+import { CheckTokenDto } from &#x27;./dto/check-token.dto&#x27;;
+import { CreateAdminDto, CreateAdminResp } from &#x27;./dto/create-admin.dto&#x27;;
+import { CreateTokenResp } from &#x27;./dto/create-token.dto&#x27;;
+import { GetAdminResp } from &#x27;./dto/get-admin.dto&#x27;;
+import { GetUsersResp } from &#x27;./dto/get-user.dto&#x27;;
+import { LoginAdminDto } from &#x27;./dto/login-admin.dto&#x27;;
+import { LoginUserDto } from &#x27;./dto/login-user.dto&#x27;;
+import { RefreshTokenDto } from &#x27;./dto/refresh-token.dto&#x27;;
+import { UpdateAdminDto } from &#x27;./dto/update-admin.dto&#x27;;
+import { UpdateUserDto } from &#x27;./dto/update-user.dto&#x27;;
+import { User } from &#x27;./entity&#x27;;
+import { Role } from &#x27;./roles&#x27;;
+import { Roles } from &#x27;./roles.decorator&#x27;;
+import { RolesGuard } from &#x27;./roles.guard&#x27;;
+
+class AuthControllerEdrrorInterceptor implements NestInterceptor {
+    intercept(context: ExecutionContext, next: CallHandler&lt;any&gt;): Observable&lt;any&gt; | Promise&lt;Observable&lt;any&gt;&gt; {
+        return next.handle()
+            .pipe(
+                catchError(
+                    (err: any) &#x3D;&gt; {
+                        console.log(&quot;Interceptor&quot;)
+                        switch(err) {
+                            case AuthServiceExceptions.UserExist:
+                                throw new BadRequestException(&quot;User Exist&quot;)
+
+                            case AuthServiceExceptions.UserNotFound:
+                                throw new NotFoundException(&quot;User not found&quot;)
+
+                            case AuthServiceExceptions.AdminExist:
+                                throw new BadRequestException(&quot;Admin Exist&quot;)
+
+                            case AuthServiceExceptions.AdminFailedAuth:
+                                throw new BadRequestException(&quot;Failed to auth&quot;)
+
+                            case AuthServiceExceptions.UserFailedAuth:
+                                throw new BadRequestException(&quot;Failed to auth&quot;)
+
+                            case AuthServiceExceptions.InvalidToken:
+                                throw new UnauthorizedException(&quot;Invalid token&quot;)
+
+                            case AuthServiceExceptions.TokenExpired:
+                                throw new UnauthorizedException(&quot;Token expired&quot;)
+                            
+                            case AuthServiceExceptions.TokenNotFound:
+                                throw new UnauthorizedException(&quot;Token not found&quot;)
+
+                            default:
+                                throw err
+                        }
+                    }
+                )
+            )
+    }
+}
+
+@Catch()
+export class AllAuthServiceExceptionsFilter implements ExceptionFilter {
+    constructor(
+        private readonly httpAdapterHost: HttpAdapterHost,
+    ) {}
+
+    catch(exception: any, host: ArgumentsHost) {
+        const {httpAdapter} &#x3D; this.httpAdapterHost
+        const ctx &#x3D; host.switchToHttp()
+
+        let resp: string | object
+        let statusCode: number
+
+        if(exception instanceof HttpException) {
+            resp &#x3D; exception.getResponse()
+            statusCode &#x3D; exception.getStatus()
+        } else {
+            const newExpection &#x3D; this.switchError(exception)
+            resp &#x3D; newExpection.getResponse()
+            statusCode &#x3D; newExpection.getStatus()
+        }
+
+        httpAdapter.reply(ctx.getResponse(), resp, statusCode)
+    }
+
+    private switchError(e: any): HttpException {
+        switch(e) {
+            case AuthServiceExceptions.UserExist:
+                return new BadRequestException(&quot;User Exist&quot;)
+
+            case AuthServiceExceptions.UserNotFound:
+                return new NotFoundException(&quot;User not found&quot;)
+
+            case AuthServiceExceptions.AdminExist:
+                return new BadRequestException(&quot;Admin Exist&quot;)
+
+            case AuthServiceExceptions.AdminFailedAuth:
+                return new BadRequestException(&quot;Failed to auth&quot;)
+
+            case AuthServiceExceptions.UserFailedAuth:
+                return new BadRequestException(&quot;Failed to auth&quot;)
+
+            case AuthServiceExceptions.InvalidToken:
+                return new UnauthorizedException(&quot;Invalid token&quot;)
+
+            case AuthServiceExceptions.TokenExpired:
+                return new UnauthorizedException(&quot;Token expired&quot;)
+            
+            case AuthServiceExceptions.TokenNotFound:
+                return new UnauthorizedException(&quot;Token not found&quot;)
+        }
+    }
+}
+
+@UseInterceptors(AuthControllerEdrrorInterceptor)
+@ApiTags(&#x27;auth&#x27;)
+@Controller(&#x27;auth&#x27;)
+export class AuthController {
+    constructor(private readonly authService: AuthService) {}
+
+    @Post(&#x27;/user&#x27;)
+    @Roles(Role.Admin)
+    @UseGuards(RolesGuard)
+    @ApiOperation({summary: &quot;Create user&quot;})
+    @ApiResponse({status: 400, description: &quot;User exist&quot;})
+    @ApiResponse({status: 403, description: &quot;You are not admin&quot;})
+    @ApiResponse({status: 201, description: &quot;User created&quot;, type: UserCreateResp})
+    @ApiBody({type: CreateUserDto})
+    @ApiBearerAuth()
+    async createUser(@Body() createUserDto: CreateUserDto): Promise&lt;UserCreateResp&gt; {
+        return new UserCreateResp(await this.authService.createUser(createUserDto))
+    }
+
+    @Delete(&#x27;/user/:id&#x27;)
+    @Roles(Role.Admin)
+    @UseGuards(RolesGuard)
+    @ApiOperation({summary: &quot;Delete user&quot;})
+    @ApiResponse({status: 404, description: &quot;User not found&quot;})
+    @ApiResponse({status: 200, description: &quot;User deleted&quot;})
+    @ApiParam({type: Number, description: &quot;id of user&quot;, name: &quot;id&quot;})
+    @ApiBearerAuth()
+    async deleteUser(@Param(&#x27;id&#x27;) id: number) {
+        const isDeleted &#x3D; await this.authService.deleteUser(id)
+        if(!isDeleted) {
+            throw new NotFoundException(&quot;User not found&quot;)
+        }
+    }
+
+    @Get(&#x27;/user&#x27;)
+    @Roles(Role.Admin)
+    @UseGuards(RolesGuard)
+    @ApiOperation({summary: &quot;get users&quot;})
+    @ApiResponse({status: 200, description: &quot;&quot;, type: [GetUsersResp]})
+    @ApiBearerAuth()
+    async getUser(): Promise&lt;GetUsersResp[]&gt; {
+        return (await this.authService.getUsers()).map(
+            (user) &#x3D;&gt; {
+                return new GetUsersResp(user)
+            }
+        )
+    }
+
+    @Put(&quot;/user/:id&quot;)
+    @Roles(Role.Admin)
+    @UseGuards(RolesGuard)
+    @ApiOperation({summary: &quot;update user&quot;})
+    @ApiParam({type: Number, name: &quot;id&quot;, description: &quot;id of user&quot;})
+    @ApiBody({type: UpdateUserDto, description: &quot;body&quot;})
+    @ApiResponse({status: 200, description: &quot;user updatet&quot;, type: GetUsersResp})
+    @ApiResponse({status: 404, description: &quot;User not found&quot;})
+    @ApiResponse({status: 400, description: &quot;User with this phone number exist&quot;})
+    @ApiBearerAuth()
+    async updateUser(@Param(&quot;id&quot;) id: number, @Body() req: UpdateUserDto): Promise&lt;GetUsersResp&gt; {
+        return new GetUsersResp(await this.authService.updateUser(id, req))
+    }
+
+    @Post(&quot;/admin&quot;)
+    @Roles(Role.Admin)
+    @UseGuards(RolesGuard)
+    @ApiOperation({summary: &quot;create admin&quot;})
+    @ApiResponse({status: 400, description: &quot;admin exist&quot;})
+    @ApiResponse({status: 403, description: &quot;You are not admin&quot;})
+    @ApiResponse({status: 201, description: &quot;Admin created&quot;, type: CreateAdminResp})
+    @ApiBody({type: CreateAdminDto})
+    @ApiBearerAuth()
+    async createAdmin(@Body() req: CreateAdminDto): Promise&lt;CreateAdminResp&gt; {
+        return new CreateAdminResp(await this.authService.createAdmin(req))
+    }
+
+    @Put(&quot;/admin/:id&quot;)
+    @Roles(Role.Admin)
+    @UseGuards(RolesGuard)
+    @ApiOperation({summary: &quot;update admin&quot;})
+    @ApiParam({type: Number, name: &quot;id&quot;, description: &quot;id of admin&quot;})
+    @ApiBody({type: UpdateAdminDto, description: &quot;body&quot;})
+    @ApiResponse({status: 200, description: &quot;admin updated&quot;, type: GetAdminResp})
+    @ApiResponse({status: 404, description: &quot;Admin not found&quot;})
+    @ApiResponse({status: 400, description: &quot;Admin with this email bad request&quot;})
+    @ApiBearerAuth()
+    async updateAdmin(@Param(&quot;id&quot;) id: number, @Body() req: UpdateAdminDto) {
+        return new GetAdminResp(await this.authService.updateAdmin(id, req))
+    }
+
+    @Delete(&quot;/admin/:id&quot;)
+    @Roles(Role.Admin)
+    @UseGuards(RolesGuard)
+    @ApiOperation({summary: &quot;delete admin&quot;})
+    @ApiResponse({status: 404, description: &quot;Admin not found&quot;})
+    @ApiResponse({status: 200, description: &quot;Admin deleted&quot;})
+    @ApiParam({type: Number, description: &quot;id of admin&quot;, name: &#x27;id&#x27;})
+    @ApiBearerAuth()
+    async deleteAdmin(@Param(&#x27;id&#x27;) id: number) {
+        const isDeleted &#x3D; await this.authService.deleteAdmin(id)
+        if(!isDeleted) {
+            throw new NotFoundException(&quot;Admin not found&quot;)
+        }
+    }
+
+    @Get(&quot;/admin&quot;)
+    @Roles(Role.Admin)
+    @UseGuards(RolesGuard)
+    @ApiOperation({summary: &quot;Get admins&quot;})
+    @ApiResponse({status: 200, description: &quot;&quot;, type: [GetAdminResp]})
+    @ApiBearerAuth()
+    async getAdmins(): Promise&lt;GetAdminResp[]&gt; {
+        return (await this.authService.getAdmins()).map(
+            (admin) &#x3D;&gt; {
+                return new GetAdminResp(admin)
+            }
+        )
+    }
+
+    @Post(&quot;/testSms/:phone&quot;)
+    @ApiParam({name: &quot;phone&quot;, type: String})
+    async createSms(@Param(&quot;phone&quot;) phone) {
+        return await this.authService.createSmsCode(phone)
+    }
+
+    @Post(&quot;/admin/login&quot;)
+    @ApiResponse({type: CreateTokenResp, status: 201})
+    @ApiResponse({status: 400, description: &quot;failed auth&quot;})
+    @ApiBody({type: LoginAdminDto, description: &quot;body&quot;})
+    async loginAdmin(@Body() req: LoginAdminDto): Promise&lt;CreateTokenResp&gt; {
+        const tokens &#x3D; await this.authService.loginAdmin(req.email, req.password)
+
+        return tokens
+    }
+    
+    @Post(&quot;/user/login&quot;)
+    @ApiBody({type: LoginUserDto})
+    @ApiResponse({status: 201, type: CreateTokenResp})
+    @ApiResponse({status: 400, description: &quot;failed to auth&quot;})
+    async loginUser(@Body() req: LoginUserDto): Promise&lt;CreateTokenResp&gt; {
+        const tokens &#x3D; await this.authService.loginUser(req.phoneNumber, req.code)
+
+        return tokens
+    }
+
+    @Post(&quot;/checkToken&quot;)
+    @ApiBody({type: CheckTokenDto})
+    @ApiResponse({status: 200})
+    @ApiResponse({status: 401, description: &quot;Not Authorizated&quot;})
+    @HttpCode(200)
+    async checkToken(@Body() req: CheckTokenDto) {
+        this.authService.decodeToken(req.token)
+    }
+
+    @Post(&quot;/refreshToken&quot;)
+    @ApiBody({type: RefreshTokenDto})
+    @ApiResponse({status: 201, type: CreateTokenResp})
+    @ApiResponse({status: 401, description: &quot;Not Authorizated&quot;})
+    async refreshToken(@Body() req: RefreshTokenDto): Promise&lt;CreateTokenResp&gt; {
+        return this.authService.refreshToken(req.refreshToken)
+    }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
+            var COMPODOC_CURRENT_PAGE_URL = 'AuthController.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

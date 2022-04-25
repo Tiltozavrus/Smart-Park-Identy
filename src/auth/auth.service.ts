@@ -61,18 +61,48 @@ export class AuthService {
         )
     }
 
+    /**
+     * create a base user
+     *
+     * @private
+     * @return {*}  {Promise<BaseUser>}
+     * @memberof AuthService
+     */
     private createBaseUser(): Promise<BaseUser> {
         return this.baseUserReposiotry.save(new BaseUser(), {})
     }
 
+    /**
+     * check if user exist by phone number
+     *
+     * @private
+     * @param {string} phone
+     * @return {*}  {Promise<boolean>}
+     * @memberof AuthService
+     */
     private async userExistByPhoneNumber(phone: string): Promise<boolean> {
         return await this.userReposiotry.findOne({where: [{phoneNumber: phone}]}) === undefined ? false : true
     }
 
+    /**
+     *  check if admin exist by email
+     *
+     * @private
+     * @param {string} email
+     * @return {*}  {Promise<boolean>}
+     * @memberof AuthService
+     */
     private async adminExistByEmail(email: string): Promise<boolean>  {
         return await this.adminReposiotry.findOne({where: [{email: email}]}) === undefined ? false : true
     }
 
+    /**
+     *
+     *
+     * @param {CreateUserDto} req
+     * @return {*}  {Promise<User>}
+     * @memberof AuthService
+     */
     async createUser(req: CreateUserDto): Promise<User> {
         if (await this.userExistByPhoneNumber(req.phoneNumber)) {
             throw AuthServiceExceptions.UserExist
@@ -85,6 +115,14 @@ export class AuthService {
         return this.userReposiotry.save(user)
     }
 
+    /**
+     *
+     *
+     * @private
+     * @param {number} id
+     * @return {*} 
+     * @memberof AuthService
+     */
     private async deleteBaseUser(id: number) {
         const result = await this.baseUserReposiotry.delete({id: id})
         if (result.affected == 0) {
@@ -93,10 +131,24 @@ export class AuthService {
         return true
     }
 
+    /**
+     *
+     *
+     * @param {number} id
+     * @return {*} 
+     * @memberof AuthService
+     */
     async deleteUser(id: number) {
         return this.deleteBaseUser(id)
     }
 
+    /**
+     *
+     *
+     * @param {CreateAdminDto} req
+     * @return {*}  {Promise<Admin>}
+     * @memberof AuthService
+     */
     async createAdmin(req: CreateAdminDto): Promise<Admin> {
         if (await this.adminExistByEmail(req.email)) {
             throw AuthServiceExceptions.AdminExist
