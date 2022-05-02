@@ -17,7 +17,6 @@ async function bootstrap() {
         .addBearerAuth()
         .build()
     )
-
     SwaggerModule.setup('swagger', app, document)
 
     const httpAdapter = app.get(HttpAdapterHost);

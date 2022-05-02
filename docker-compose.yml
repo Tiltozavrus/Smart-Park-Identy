@@ -9,9 +9,11 @@ services:
       - POSTGRES_DB=identy
     ports:
       - 5432:5432
-  services:
-    smart-park-identy-back:
-      environment:
-        IDENTY_DATABASE_URI: postgresql://root:root@localhost:5432/identy
-        IDENTY_SECRET: super_secret
-        IDENTY_REFRESH_SECRET: refresh_super_secret
+  smart-park-identy-back:
+    build: .
+    environment:
+      IDENTY_DATABASE_URI: postgresql://root:root@postgres:5432/identy
+      IDENTY_SECRET: super_secret
+      IDENTY_REFRESH_SECRET: refresh_super_secret
+    ports:
+      - 8080:3000
