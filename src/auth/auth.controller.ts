@@ -155,12 +155,29 @@ export class AuthController {
     @ApiOperation({summary: "get users"})
     @ApiResponse({status: 200, description: "", type: [GetUsersResp]})
     @ApiBearerAuth()
-    async getUser(): Promise<GetUsersResp[]> {
+    async getUsers(): Promise<GetUsersResp[]> {
         return (await this.authService.getUsers()).map(
             (user) => {
                 return new GetUsersResp(user)
             }
         )
+    }
+
+    @Get('/user/:id')
+    @Roles(Role.Admin)
+    @UseGuards(RolesGuard)
+    @ApiOperation({summary: "get user"})
+    @ApiResponse({status: 200, description: "", type: GetUsersResp})
+    @ApiParam({name: 'id', type: () => Number, required: true})
+    @ApiBearerAuth()
+    async getUser(
+        @Param('id') id: number
+    ) {
+        const user = await this.authService.getUser(id)
+        if(!user) {
+            throw new NotFoundException('User not found')
+        }
+        return new GetUsersResp(user)
     }
 
     @Put("/user/:id")
