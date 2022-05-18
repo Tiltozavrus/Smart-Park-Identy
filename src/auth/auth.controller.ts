@@ -251,6 +251,7 @@ export class AuthController {
     @Post("/testSms/:phone")
     @ApiParam({name: "phone", type: String})
     @ApiProduces('text/plain')
+    @ApiResponse({type: String})
     async createSms(@Param("phone") phone) {
         return await this.authService.createSmsCode(phone)
     }
