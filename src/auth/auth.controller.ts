@@ -1,6 +1,6 @@
 import { ArgumentsHost, BadRequestException, Body, CallHandler, Catch, Controller, Delete, ExceptionFilter, ExecutionContext, Get, HttpCode, NestInterceptor, NotFoundException, Param, Post, Put, UseFilters, UseInterceptors,  UnauthorizedException, UseGuards, HttpException, HttpStatus} from '@nestjs/common';
 import { HttpAdapterHost } from '@nestjs/core';
-import { ApiBearerAuth, ApiBody, ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiBody, ApiOperation, ApiParam, ApiProduces, ApiResponse, ApiTags } from '@nestjs/swagger';
 import e = require('express');
 import { catchError, Observable } from 'rxjs';
 import { AuthService, AuthServiceExceptions } from './auth.service';
@@ -250,6 +250,7 @@ export class AuthController {
 
     @Post("/testSms/:phone")
     @ApiParam({name: "phone", type: String})
+    @ApiProduces('text/plain')
     async createSms(@Param("phone") phone) {
         return await this.authService.createSmsCode(phone)
     }
