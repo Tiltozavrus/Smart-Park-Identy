@@ -18,7 +18,7 @@ async function bootstrap() {
         .addBearerAuth()
         .build()
     )
-    SwaggerModule.setup('swagger', app, document)
+    SwaggerModule.setup('api/auth/swagger', app, document)
 
     const httpAdapter = app.get(HttpAdapterHost);
     app.useGlobalFilters(new AllAuthServiceExceptionsFilter(httpAdapter));
