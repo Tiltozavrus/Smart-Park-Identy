@@ -32,6 +32,7 @@ export class RolesGuard implements CanActivate {
                 return true
             }
 
+
             return requiredRoles.some((role) => decoded.payload.payload.role.includes(role))
         } catch(e) {
             switch(e) {

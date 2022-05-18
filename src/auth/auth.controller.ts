@@ -122,8 +122,6 @@ export class AuthController {
     constructor(private readonly authService: AuthService) {}
 
     @Post('/user')
-    @Roles(Role.Admin)
-    @UseGuards(RolesGuard)
     @ApiOperation({summary: "Create user"})
     @ApiResponse({status: 400, description: "User exist"})
     @ApiResponse({status: 403, description: "You are not admin"})
