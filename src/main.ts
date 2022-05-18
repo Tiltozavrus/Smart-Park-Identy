@@ -7,13 +7,14 @@ import { AllAuthServiceExceptionsFilter } from './auth/auth.controller';
 async function bootstrap() {
     const app = await NestFactory.create(AppModule);
     app.useGlobalPipes(new ValidationPipe());
-
+    app.setGlobalPrefix('/api/auth')
     const document = SwaggerModule.createDocument(
         app, 
         new DocumentBuilder()
         .setTitle('smart-parking-identy')
         .setDescription('Identy api description')
         .setVersion('1.0')
+        .setBasePath('/api/auth')
         .addBearerAuth()
         .build()
     )

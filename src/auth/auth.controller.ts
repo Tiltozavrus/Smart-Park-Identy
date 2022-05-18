@@ -122,7 +122,7 @@ export class AuthController {
     constructor(private readonly authService: AuthService) {}
 
     @Post('/user')
-    @ApiOperation({summary: "Create user"})
+    @ApiOperation({summary: "Create user",})
     @ApiResponse({status: 400, description: "User exist"})
     @ApiResponse({status: 403, description: "You are not admin"})
     @ApiResponse({status: 201, description: "User created", type: UserCreateResp})
