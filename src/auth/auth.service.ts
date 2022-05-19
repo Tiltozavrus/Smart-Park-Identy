@@ -255,7 +255,7 @@ export class AuthService {
             throw AuthServiceExceptions.UserFailedAuth
         }
 
-        return this.createTokens({userId: getUserWithCode.id, role: Role.User})
+        return this.createTokens({userId: getUserWithCode.user.id, role: Role.User})
     }
 
     private createTokens(payload: Payload): CreatedTokens {
