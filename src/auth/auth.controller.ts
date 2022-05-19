@@ -162,8 +162,6 @@ export class AuthController {
     }
 
     @Get('/user/:id')
-    @Roles(Role.Admin)
-    @UseGuards(RolesGuard)
     @ApiOperation({summary: "get user"})
     @ApiResponse({status: 200, description: "", type: GetUsersResp})
     @ApiParam({name: 'id', type: () => Number, required: true})
