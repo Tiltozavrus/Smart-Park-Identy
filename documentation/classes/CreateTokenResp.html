@@ -66,6 +66,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>create token responce</p>
+
+            </p>
 
 
 
@@ -135,10 +142,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/auth/dto/create-token.dto.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/auth/dto/create-token.dto.ts:26</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>jwt redresh token</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -170,10 +183,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/auth/dto/create-token.dto.ts:5</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/auth/dto/create-token.dto.ts:17</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>jwt access token</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -191,10 +210,28 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &quot;@nestjs/swagger&quot;;
 
+/**
+ * create token responce
+ *
+ * @export
+ * @class CreateTokenResp
+ */
 export class CreateTokenResp {
+    /**
+     * jwt access token
+     *
+     * @type {string}
+     * @memberof CreateTokenResp
+     */
     @ApiProperty({example: &quot;eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.VFb0qJ1LRg_4ujbZoRMXnVkUgiuKq5KxWqNdbKq_G9Vvz-S1zZa9LPxtHWKa64zDl2ofkT8F6jBt_K4riU-fPg&quot;})
     token: string
 
+    /**
+     * jwt redresh token
+     *
+     * @type {string}
+     * @memberof CreateTokenResp
+     */
     @ApiProperty({example: &quot;eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.VFb0qJ1LRg_4ujbZoRMXnVkUgiuKq5KxWqNdbKq_G9Vvz-S1zZa9LPxtHWKa64zDl2ofkT8F6jBt_K4riU-fPg&quot;})
     refreshToken: string
 }</code></pre>

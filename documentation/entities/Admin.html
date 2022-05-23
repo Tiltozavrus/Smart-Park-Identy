@@ -60,6 +60,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Admin entity represantation</p>
+
+            </p>
 
 
             <section>
@@ -129,10 +136,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/auth/entity/admin.entity.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/auth/entity/admin.entity.ts:20</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>edge to base user</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -164,10 +177,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/auth/entity/admin.entity.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/auth/entity/admin.entity.ts:40</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>unique email</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -199,10 +218,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/auth/entity/admin.entity.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/auth/entity/admin.entity.ts:49</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>admin password</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -214,19 +239,50 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Column, Entity, JoinColumn, OneToOne, Unique } from &quot;typeorm&quot;;
 import { BaseUser } from &quot;./baseuser.entity&quot;;
 
+/**
+ * Admin entity represantation
+ *
+ * @export
+ * @class Admin
+ */
 @Entity({name: &quot;Admin&quot;})
 export class Admin {
+    /**
+     * edge to base user
+     *
+     * @type {BaseUser}
+     * @memberof Admin
+     */
     @OneToOne(() &#x3D;&gt; BaseUser, {primary: true, eager: true, onDelete: &quot;CASCADE&quot;, onUpdate: &quot;CASCADE&quot;, })
     @JoinColumn()
     baseUser: BaseUser;
 
+    /**
+     * id getter
+     *
+     * @readonly
+     * @type {number}
+     * @memberof Admin
+     */
     get id(): number {
         return this.baseUser.id
     }
 
+    /**
+     * unique email
+     *
+     * @type {string}
+     * @memberof Admin
+     */
     @Column({unique: true})
     email: string;
 
+    /**
+     * admin password
+     *
+     * @type {string}
+     * @memberof Admin
+     */
     @Column()
     password: string;
 }</code></pre>

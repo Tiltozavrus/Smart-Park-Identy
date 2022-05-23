@@ -66,6 +66,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>create admin req body</p>
+
+            </p>
 
 
 
@@ -135,10 +142,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/auth/dto/create-admin.dto.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/auth/dto/create-admin.dto.ts:19</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>email</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -170,10 +183,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/auth/dto/create-admin.dto.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/auth/dto/create-admin.dto.ts:29</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>password</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -192,24 +211,65 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &quot;@nestjs/swagger&quot;;
 import { IsEmail, IsString } from &quot;class-validator&quot;;
 
+/**
+ * create admin req body
+ *
+ * @export
+ * @class CreateAdminDto
+ */
 export class CreateAdminDto {
+    /**
+     * email
+     *
+     * @type {string}
+     * @memberof CreateAdminDto
+     */
     @ApiProperty({example: &quot;user.name@example.com&quot;})
     @IsEmail({},{message: &quot;email is not valid&quot;})
     email: string
 
+    /**
+     * password
+     *
+     * @type {string}
+     * @memberof CreateAdminDto
+     */
     @ApiProperty({example: &quot;qwerty&quot;})
     @IsString({message: &quot;&quot;})
     password: string
 }
 
+/**
+ * create admin responce
+ *
+ * @export
+ * @class CreateAdminResp
+ */
 export class CreateAdminResp {
+    /**
+     * Creates an instance of CreateAdminResp.
+     * @param {{id: number, email: string}} admin
+     * @memberof CreateAdminResp
+     */
     constructor(admin: {id: number, email: string}) {
         this.id &#x3D; admin.id
         this.email &#x3D; admin.email
     }   
+    /**
+     * admin id
+     *
+     * @type {number}
+     * @memberof CreateAdminResp
+     */
     @ApiProperty({example: 1})
     id: number
 
+    /**
+     * admin email
+     *
+     * @type {string}
+     * @memberof CreateAdminResp
+     */
     @ApiProperty({example: &quot;user.name@example.com&quot;})
     email: string
 }</code></pre>

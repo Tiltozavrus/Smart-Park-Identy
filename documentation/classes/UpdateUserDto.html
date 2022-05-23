@@ -66,6 +66,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>update user</p>
+
+            </p>
 
 
 
@@ -138,10 +145,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/auth/dto/update-user.dto.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/auth/dto/update-user.dto.ts:31</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>name of user</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -174,10 +187,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/auth/dto/update-user.dto.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/auth/dto/update-user.dto.ts:20</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>phone number</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -196,12 +215,30 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &quot;@nestjs/swagger&quot;;
 import { IsPhoneNumber, IsString, ValidateIf } from &quot;class-validator&quot;;
 
+/**
+ * update user
+ *
+ * @export
+ * @class UpdateUserDto
+ */
 export class UpdateUserDto {
+    /**
+     * phone number
+     *
+     * @type {string}
+     * @memberof UpdateUserDto
+     */
     @ApiProperty({required: false, example: &quot;+7 (936) 134 14 24&quot;})
     @ValidateIf(o &#x3D;&gt; o.phoneNumber)
     @IsPhoneNumber(&quot;RU&quot;, {})
     phoneNumber?: string
 
+    /**
+     * name of user
+     *
+     * @type {string}
+     * @memberof UpdateUserDto
+     */
     @ApiProperty({required: false})
     @ValidateIf(o &#x3D;&gt; o.name)
     @IsString({message: &quot;should be a string&quot;})

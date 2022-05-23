@@ -66,6 +66,13 @@
             </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>class responce for http controller of working with auth</p>
+
+            </p>
 
 
 
@@ -114,6 +121,10 @@
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#getUser" >getUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getUsers" >getUsers</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -181,14 +192,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="267"
-                            class="link-to-prism">src/auth/auth.controller.ts:267</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="422"
+                            class="link-to-prism">src/auth/auth.controller.ts:422</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>check token</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -259,14 +272,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="189"
-                            class="link-to-prism">src/auth/auth.controller.ts:189</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="295"
+                            class="link-to-prism">src/auth/auth.controller.ts:295</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>create admin</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -302,7 +317,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>{Promise<CreateAdminResp>}</p>
+
                     </div>
                 </td>
             </tr>
@@ -331,20 +347,22 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post(&#x27;/testSms/:phone&#x27;)<br />@ApiParam({name: &#x27;phone&#x27;, type: String})<br /></code>
+                    <code>@Post(&#x27;/testSms/:phone&#x27;)<br />@ApiParam({name: &#x27;phone&#x27;, type: String})<br />@ApiProduces(&#x27;text/plain&#x27;)<br />@ApiResponse({type: String})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="238"
-                            class="link-to-prism">src/auth/auth.controller.ts:238</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="373"
+                            class="link-to-prism">src/auth/auth.controller.ts:373</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>test method to get sms code</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -405,20 +423,22 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post(&#x27;/user&#x27;)<br />@Roles(Role.Admin)<br />@UseGuards(RolesGuard)<br />@ApiOperation({summary: &#x27;Create user&#x27;})<br />@ApiResponse({status: 400, description: &#x27;User exist&#x27;})<br />@ApiResponse({status: 403, description: &#x27;You are not admin&#x27;})<br />@ApiResponse({status: 201, description: &#x27;User created&#x27;, type: UserCreateResp})<br />@ApiBody({type: CreateUserDto})<br />@ApiBearerAuth()<br /></code>
+                    <code>@Post(&#x27;/user&#x27;)<br />@ApiOperation({summary: &#x27;Create user&#x27;})<br />@ApiResponse({status: 400, description: &#x27;User exist&#x27;})<br />@ApiResponse({status: 403, description: &#x27;You are not admin&#x27;})<br />@ApiResponse({status: 201, description: &#x27;User created&#x27;, type: UserCreateResp})<br />@ApiBody({type: CreateUserDto})<br />@ApiBearerAuth()<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="133"
-                            class="link-to-prism">src/auth/auth.controller.ts:133</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="190"
+                            class="link-to-prism">src/auth/auth.controller.ts:190</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>create user</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -454,7 +474,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>{Promise<UserCreateResp>}</p>
+
                     </div>
                 </td>
             </tr>
@@ -489,14 +510,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="215"
-                            class="link-to-prism">src/auth/auth.controller.ts:215</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="335"
+                            class="link-to-prism">src/auth/auth.controller.ts:335</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>delete admin by id</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -567,14 +590,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="145"
-                            class="link-to-prism">src/auth/auth.controller.ts:145</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="208"
+                            class="link-to-prism">src/auth/auth.controller.ts:208</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>delete user</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -645,17 +670,25 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="228"
-                            class="link-to-prism">src/auth/auth.controller.ts:228</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="354"
+                            class="link-to-prism">src/auth/auth.controller.ts:354</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>return list of admins</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../classes/GetAdminResp.html" target="_self" >Promise&lt;GetAdminResp[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>{Promise&lt;GetAdminResp[]&gt;}</p>
 
                     </div>
                 </td>
@@ -677,7 +710,87 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getUser()</code>
+                    <code>getUser(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;/user/:id&#x27;)<br />@ApiOperation({summary: &#x27;get user&#x27;})<br />@ApiResponse({status: 200, description: &#x27;&#x27;, type: GetUsersResp})<br />@ApiParam({name: &#x27;id&#x27;, type: () &#x3D;&gt; Number, required: true})<br />@ApiBearerAuth()<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="247"
+                            class="link-to-prism">src/auth/auth.controller.ts:247</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>return user by id</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUsers"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getUsers</b></span>
+                        <a href="#getUsers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getUsers()</code>
                 </td>
             </tr>
 
@@ -691,17 +804,25 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="158"
-                            class="link-to-prism">src/auth/auth.controller.ts:158</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="227"
+                            class="link-to-prism">src/auth/auth.controller.ts:227</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>return list of users</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../classes/GetUsersResp.html" target="_self" >Promise&lt;GetUsersResp[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>{Promise&lt;GetUsersResp[]&gt;}</p>
 
                     </div>
                 </td>
@@ -737,14 +858,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="246"
-                            class="link-to-prism">src/auth/auth.controller.ts:246</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="388"
+                            class="link-to-prism">src/auth/auth.controller.ts:388</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>login admin</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -780,7 +903,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>{Promise<CreateTokenResp>}</p>
+
                     </div>
                 </td>
             </tr>
@@ -815,14 +939,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="256"
-                            class="link-to-prism">src/auth/auth.controller.ts:256</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="405"
+                            class="link-to-prism">src/auth/auth.controller.ts:405</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>login user</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -858,7 +984,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>{Promise<CreateTokenResp>}</p>
+
                     </div>
                 </td>
             </tr>
@@ -893,14 +1020,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="275"
-                            class="link-to-prism">src/auth/auth.controller.ts:275</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="437"
+                            class="link-to-prism">src/auth/auth.controller.ts:437</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>refresh token</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -936,7 +1065,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>{Promise<CreateTokenResp>}</p>
+
                     </div>
                 </td>
             </tr>
@@ -971,14 +1101,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="203"
-                            class="link-to-prism">src/auth/auth.controller.ts:203</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="317"
+                            class="link-to-prism">src/auth/auth.controller.ts:317</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>update admin by id</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -1061,14 +1193,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="176"
-                            class="link-to-prism">src/auth/auth.controller.ts:176</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="275"
+                            class="link-to-prism">src/auth/auth.controller.ts:275</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>update user by id</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -1116,7 +1250,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>{Promise<GetUsersResp>}</p>
+
                     </div>
                 </td>
             </tr>
@@ -1128,7 +1263,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ArgumentsHost, BadRequestException, Body, CallHandler, Catch, Controller, Delete, ExceptionFilter, ExecutionContext, Get, HttpCode, NestInterceptor, NotFoundException, Param, Post, Put, UseFilters, UseInterceptors,  UnauthorizedException, UseGuards, HttpException, HttpStatus} from &#x27;@nestjs/common&#x27;;
 import { HttpAdapterHost } from &#x27;@nestjs/core&#x27;;
-import { ApiBearerAuth, ApiBody, ApiOperation, ApiParam, ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
+import { ApiBearerAuth, ApiBody, ApiOperation, ApiParam, ApiProduces, ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import e &#x3D; require(&#x27;express&#x27;);
 import { catchError, Observable } from &#x27;rxjs&#x27;;
 import { AuthService, AuthServiceExceptions } from &#x27;./auth.service&#x27;;
@@ -1148,7 +1283,21 @@ import { Role } from &#x27;./roles&#x27;;
 import { Roles } from &#x27;./roles.decorator&#x27;;
 import { RolesGuard } from &#x27;./roles.guard&#x27;;
 
+/**
+ * Interceptor to catch auth errors
+ *
+ * @class AuthControllerEdrrorInterceptor
+ * @implements {NestInterceptor}
+ */
 class AuthControllerEdrrorInterceptor implements NestInterceptor {
+    /**
+     * interceptor to transorm error to exception
+     *
+     * @param {ExecutionContext} context
+     * @param {CallHandler&lt;any&gt;} next
+     * @return {*}  {(Observable&lt;any&gt; | Promise&lt;Observable&lt;any&gt;&gt;)}
+     * @memberof AuthControllerEdrrorInterceptor
+     */
     intercept(context: ExecutionContext, next: CallHandler&lt;any&gt;): Observable&lt;any&gt; | Promise&lt;Observable&lt;any&gt;&gt; {
         return next.handle()
             .pipe(
@@ -1189,12 +1338,31 @@ class AuthControllerEdrrorInterceptor implements NestInterceptor {
     }
 }
 
+/**
+ * exception filter for auth controller
+ *
+ * @export
+ * @class AllAuthServiceExceptionsFilter
+ * @implements {ExceptionFilter}
+ */
 @Catch()
 export class AllAuthServiceExceptionsFilter implements ExceptionFilter {
+    /**
+     * Creates an instance of AllAuthServiceExceptionsFilter.
+     * @param {HttpAdapterHost} httpAdapterHost
+     * @memberof AllAuthServiceExceptionsFilter
+     */
     constructor(
         private readonly httpAdapterHost: HttpAdapterHost,
     ) {}
 
+    /**
+     * catch exception and return http exception status code
+     *
+     * @param {*} exception
+     * @param {ArgumentsHost} host
+     * @memberof AllAuthServiceExceptionsFilter
+     */
     catch(exception: any, host: ArgumentsHost) {
         const {httpAdapter} &#x3D; this.httpAdapterHost
         const ctx &#x3D; host.switchToHttp()
@@ -1214,6 +1382,14 @@ export class AllAuthServiceExceptionsFilter implements ExceptionFilter {
         httpAdapter.reply(ctx.getResponse(), resp, statusCode)
     }
 
+    /**
+     * switch error to decode it to http exception
+     *
+     * @private
+     * @param {*} e
+     * @return {*}  {HttpException}
+     * @memberof AllAuthServiceExceptionsFilter
+     */
     private switchError(e: any): HttpException {
         switch(e) {
             case AuthServiceExceptions.UserExist:
@@ -1243,16 +1419,32 @@ export class AllAuthServiceExceptionsFilter implements ExceptionFilter {
     }
 }
 
+/**
+ *
+ * class responce for http controller of working with auth
+ * @export
+ * @class AuthController
+ */
 @UseInterceptors(AuthControllerEdrrorInterceptor)
 @ApiTags(&#x27;auth&#x27;)
 @Controller(&#x27;auth&#x27;)
 export class AuthController {
+    /**
+     * Creates an instance of AuthController.
+     * @param {AuthService} authService
+     * @memberof AuthController
+     */
     constructor(private readonly authService: AuthService) {}
 
+    /**
+     * create user
+     *
+     * @param {CreateUserDto} createUserDto
+     * @return {*}  {Promise&lt;UserCreateResp&gt;}
+     * @memberof AuthController
+     */
     @Post(&#x27;/user&#x27;)
-    @Roles(Role.Admin)
-    @UseGuards(RolesGuard)
-    @ApiOperation({summary: &quot;Create user&quot;})
+    @ApiOperation({summary: &quot;Create user&quot;,})
     @ApiResponse({status: 400, description: &quot;User exist&quot;})
     @ApiResponse({status: 403, description: &quot;You are not admin&quot;})
     @ApiResponse({status: 201, description: &quot;User created&quot;, type: UserCreateResp})
@@ -1262,6 +1454,12 @@ export class AuthController {
         return new UserCreateResp(await this.authService.createUser(createUserDto))
     }
 
+    /**
+     * delete user
+     *
+     * @param {number} id
+     * @memberof AuthController
+     */
     @Delete(&#x27;/user/:id&#x27;)
     @Roles(Role.Admin)
     @UseGuards(RolesGuard)
@@ -1277,13 +1475,19 @@ export class AuthController {
         }
     }
 
+    /**
+     * return list of users
+     *
+     * @return {*}  {Promise&lt;GetUsersResp[]&gt;}
+     * @memberof AuthController
+     */
     @Get(&#x27;/user&#x27;)
     @Roles(Role.Admin)
     @UseGuards(RolesGuard)
     @ApiOperation({summary: &quot;get users&quot;})
     @ApiResponse({status: 200, description: &quot;&quot;, type: [GetUsersResp]})
     @ApiBearerAuth()
-    async getUser(): Promise&lt;GetUsersResp[]&gt; {
+    async getUsers(): Promise&lt;GetUsersResp[]&gt; {
         return (await this.authService.getUsers()).map(
             (user) &#x3D;&gt; {
                 return new GetUsersResp(user)
@@ -1291,6 +1495,36 @@ export class AuthController {
         )
     }
 
+    /**
+     * return user by id
+     *
+     * @param {number} id
+     * @return {*} 
+     * @memberof AuthController
+     */
+    @Get(&#x27;/user/:id&#x27;)
+    @ApiOperation({summary: &quot;get user&quot;})
+    @ApiResponse({status: 200, description: &quot;&quot;, type: GetUsersResp})
+    @ApiParam({name: &#x27;id&#x27;, type: () &#x3D;&gt; Number, required: true})
+    @ApiBearerAuth()
+    async getUser(
+        @Param(&#x27;id&#x27;) id: number
+    ) {
+        const user &#x3D; await this.authService.getUser(id)
+        if(!user) {
+            throw new NotFoundException(&#x27;User not found&#x27;)
+        }
+        return new GetUsersResp(user)
+    }
+
+    /**
+     * update user by id
+     *
+     * @param {number} id
+     * @param {UpdateUserDto} req
+     * @return {*}  {Promise&lt;GetUsersResp&gt;}
+     * @memberof AuthController
+     */
     @Put(&quot;/user/:id&quot;)
     @Roles(Role.Admin)
     @UseGuards(RolesGuard)
@@ -1305,6 +1539,13 @@ export class AuthController {
         return new GetUsersResp(await this.authService.updateUser(id, req))
     }
 
+    /**
+     * create admin
+     *
+     * @param {CreateAdminDto} req
+     * @return {*}  {Promise&lt;CreateAdminResp&gt;}
+     * @memberof AuthController
+     */
     @Post(&quot;/admin&quot;)
     @Roles(Role.Admin)
     @UseGuards(RolesGuard)
@@ -1318,6 +1559,14 @@ export class AuthController {
         return new CreateAdminResp(await this.authService.createAdmin(req))
     }
 
+    /**
+     * update admin by id
+     *
+     * @param {number} id
+     * @param {UpdateAdminDto} req
+     * @return {*} 
+     * @memberof AuthController
+     */
     @Put(&quot;/admin/:id&quot;)
     @Roles(Role.Admin)
     @UseGuards(RolesGuard)
@@ -1332,6 +1581,12 @@ export class AuthController {
         return new GetAdminResp(await this.authService.updateAdmin(id, req))
     }
 
+    /**
+     * delete admin by id
+     *
+     * @param {number} id
+     * @memberof AuthController
+     */
     @Delete(&quot;/admin/:id&quot;)
     @Roles(Role.Admin)
     @UseGuards(RolesGuard)
@@ -1347,6 +1602,12 @@ export class AuthController {
         }
     }
 
+    /**
+     *
+     * return list of admins
+     * @return {*}  {Promise&lt;GetAdminResp[]&gt;}
+     * @memberof AuthController
+     */
     @Get(&quot;/admin&quot;)
     @Roles(Role.Admin)
     @UseGuards(RolesGuard)
@@ -1361,12 +1622,28 @@ export class AuthController {
         )
     }
 
+    /**
+     * test method to get sms code
+     *
+     * @param {*} phone
+     * @return {*} 
+     * @memberof AuthController
+     */
     @Post(&quot;/testSms/:phone&quot;)
     @ApiParam({name: &quot;phone&quot;, type: String})
+    @ApiProduces(&#x27;text/plain&#x27;)
+    @ApiResponse({type: String})
     async createSms(@Param(&quot;phone&quot;) phone) {
         return await this.authService.createSmsCode(phone)
     }
 
+    /**
+     * login admin
+     *
+     * @param {LoginAdminDto} req
+     * @return {*}  {Promise&lt;CreateTokenResp&gt;}
+     * @memberof AuthController
+     */
     @Post(&quot;/admin/login&quot;)
     @ApiResponse({type: CreateTokenResp, status: 201})
     @ApiResponse({status: 400, description: &quot;failed auth&quot;})
@@ -1377,6 +1654,13 @@ export class AuthController {
         return tokens
     }
     
+    /**
+     * login user
+     *
+     * @param {LoginUserDto} req
+     * @return {*}  {Promise&lt;CreateTokenResp&gt;}
+     * @memberof AuthController
+     */
     @Post(&quot;/user/login&quot;)
     @ApiBody({type: LoginUserDto})
     @ApiResponse({status: 201, type: CreateTokenResp})
@@ -1387,6 +1671,12 @@ export class AuthController {
         return tokens
     }
 
+    /**
+     * check token 
+     *
+     * @param {CheckTokenDto} req
+     * @memberof AuthController
+     */
     @Post(&quot;/checkToken&quot;)
     @ApiBody({type: CheckTokenDto})
     @ApiResponse({status: 200})
@@ -1396,6 +1686,13 @@ export class AuthController {
         this.authService.decodeToken(req.token)
     }
 
+    /**
+     * refresh token
+     *
+     * @param {RefreshTokenDto} req
+     * @return {*}  {Promise&lt;CreateTokenResp&gt;}
+     * @memberof AuthController
+     */
     @Post(&quot;/refreshToken&quot;)
     @ApiBody({type: RefreshTokenDto})
     @ApiResponse({status: 201, type: CreateTokenResp})

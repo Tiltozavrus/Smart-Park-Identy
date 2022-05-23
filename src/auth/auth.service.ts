@@ -13,6 +13,12 @@ import { UserSmsCode } from './entity/user_sms_code.entity';
 import { Role } from './roles';
 import { CreateExpiresFunc, DecodedToken, DecodeType, ExpirationStatus, TokenFactory } from './token';
 
+/**
+ * AuthService errors
+ *
+ * @export
+ * @constant {AuthServiceExceptions}
+ */
 export const AuthServiceExceptions = {
     UserExist: Error("user exist with this phone number"),
     UserNotFound: Error("user not found"),
@@ -25,20 +31,80 @@ export const AuthServiceExceptions = {
     TokenNotFound: Error("Token not found")
 }
 
+/**
+ * interface to created token type
+ *
+ * @export
+ * @interface CreatedTokens
+ */
 export interface CreatedTokens {
+    /**
+     * jwt token to access
+     *
+     * @type {string}
+     * @memberof CreatedTokens
+     */
     token: string
+
+    /**
+     * jwt token to refresh
+     *
+     * @type {string}
+     * @memberof CreatedTokens
+     */
     refreshToken: string
 }
 
+/**
+ * payload of jwt token type
+ *
+ * @export
+ * @interface Payload
+ */
 export interface Payload {
+    /**
+     * role of user
+     *
+     * @type {Role}
+     * @memberof Payload
+     */
     role: Role, 
+
+    /**
+     * id of user
+     *
+     * @type {number}
+     * @memberof Payload
+     */
     userId: number
 }
 
+/**
+ * auth service implementetion
+ *
+ * @export
+ * @class AuthService
+ */
 @Injectable()
 export class AuthService {
+    /**
+     * token factory to created and resfresh tokens
+     *
+     * @private
+     * @type {TokenFactory}
+     * @memberof AuthService
+     */
     private readonly tokenFactory: TokenFactory
 
+    /**
+     * Creates an instance of AuthService.
+     * @param {Repository<User>} userReposiotry
+     * @param {Repository<BaseUser>} baseUserReposiotry
+     * @param {Repository<Admin>} adminReposiotry
+     * @param {ConfigService} configService
+     * @param {Repository<UserSmsCode>} smsRepository
+     * @memberof AuthService
+     */
     constructor(
         @InjectRepository(User)
         private readonly userReposiotry: Repository<User>,
@@ -97,7 +163,7 @@ export class AuthService {
     }
 
     /**
-     *
+     * create user
      *
      * @param {CreateUserDto} req
      * @return {*}  {Promise<User>}
@@ -116,7 +182,7 @@ export class AuthService {
     }
 
     /**
-     *
+     * delete base user use for delete admins and users
      *
      * @private
      * @param {number} id
@@ -132,7 +198,7 @@ export class AuthService {
     }
 
     /**
-     *
+     * delete user by id
      *
      * @param {number} id
      * @return {*} 
@@ -143,7 +209,7 @@ export class AuthService {
     }
 
     /**
-     *
+     * create admin
      *
      * @param {CreateAdminDto} req
      * @return {*}  {Promise<Admin>}
@@ -162,26 +228,69 @@ export class AuthService {
 
     }
 
+    /**
+     * get users with filtering
+     *
+     * @param {FindManyOptions<User>} [opts]
+     * @return {*}  {Promise<User[]>}
+     * @memberof AuthService
+     */
     async getUsers(opts?: FindManyOptions<User>): Promise<User[]> {
         return this.userReposiotry.find(opts)
     }
 
+    /**
+     * delete admin by id
+     *
+     * @param {number} id
+     * @return {*} 
+     * @memberof AuthService
+     */
     async deleteAdmin(id: number) {
         return this.deleteBaseUser(id)
     }
 
+    /**
+     * get admins by filtering`
+     *
+     * @param {FindManyOptions<Admin>} [opts]
+     * @return {*}  {Promise<Admin[]>}
+     * @memberof AuthService
+     */
     async getAdmins(opts?: FindManyOptions<Admin>): Promise<Admin[]> {
         return this.adminReposiotry.find(opts)
     }
 
+    /**
+     * get user by id
+     *
+     * @param {number} id
+     * @return {*}  {Promise<User>}
+     * @memberof AuthService
+     */
     async getUser(id: number): Promise<User> {
         return this.userReposiotry.findOne(id)
     }
 
+    /**
+     * get admin by id
+     *
+     * @param {number} id
+     * @return {*}  {Promise<Admin>}
+     * @memberof AuthService
+     */
     async getAdmin(id: number): Promise<Admin> {
         return this.adminReposiotry.findOne(id)
     }
 
+    /**
+     * update user by id
+     *
+     * @param {number} id
+     * @param {UpdateUserDto} req
+     * @return {*}  {Promise<User>}
+     * @memberof AuthService
+     */
     async updateUser(id:number, req: UpdateUserDto): Promise<User> {
         const getUser = await this.getUser(id)
         if(getUser === undefined) {
@@ -197,6 +306,14 @@ export class AuthService {
         )
     }
 
+    /**
+     * update admin by id
+     *
+     * @param {number} id
+     * @param {UpdateAdminDto} req
+     * @return {*}  {Promise<Admin>}
+     * @memberof AuthService
+     */
     async updateAdmin(id: number, req: UpdateAdminDto): Promise<Admin> {
         const getAdmin = await this.getAdmin(id)
         if(getAdmin === undefined) {
@@ -215,12 +332,28 @@ export class AuthService {
         )
     }
 
+    /**
+     * func to crate expire time of token
+     *
+     * @private
+     * @param {number} issued
+     * @type {CreateExpiresFunc}
+     * @memberof AuthService
+     */
     private expiresFunc: CreateExpiresFunc = (issued: number) => {
         const minuteInMs = 60000
         const hourInMs = minuteInMs * 60
         return issued + 24 * hourInMs
     }
 
+    /**
+     * login admin
+     *
+     * @param {string} email
+     * @param {string} password
+     * @return {*}  {Promise<CreatedTokens>}
+     * @memberof AuthService
+     */
     async loginAdmin(email: string, password: string): Promise<CreatedTokens> {
         const getAdmin = await this.adminReposiotry.findOne(
             {
@@ -238,6 +371,14 @@ export class AuthService {
         return this.createTokens({userId: getAdmin.id, role: Role.Admin})
     }
 
+    /**
+     * login user
+     *
+     * @param {string} phoneNumber
+     * @param {string} code
+     * @return {*}  {Promise<CreatedTokens>}
+     * @memberof AuthService
+     */
     async loginUser(phoneNumber: string, code: string): Promise<CreatedTokens> {
         const getUserWithCode = await this.smsRepository.findOne(
             {
@@ -258,6 +399,14 @@ export class AuthService {
         return this.createTokens({userId: getUserWithCode.user.id, role: Role.User})
     }
 
+    /**
+     * create tokens for user
+     *
+     * @private
+     * @param {Payload} payload
+     * @return {*}  {CreatedTokens}
+     * @memberof AuthService
+     */
     private createTokens(payload: Payload): CreatedTokens {
         const token = this.tokenFactory.createToken(payload)(this.expiresFunc)
 
@@ -270,6 +419,13 @@ export class AuthService {
     }
 
 
+    /**
+     * create sms code
+     *
+     * @param {string} phoneNumber
+     * @return {*}  {Promise<string>}
+     * @memberof AuthService
+     */
     async createSmsCode(phoneNumber: string): Promise<string> {
         const user = await this.userReposiotry.findOne({where: [{phoneNumber: phoneNumber}]})
         if(user === undefined) {
@@ -296,6 +452,13 @@ export class AuthService {
         }
     }
 
+    /**
+     * decode token to get payload
+     *
+     * @param {string} token
+     * @return {*}  {DecodedToken<Payload>}
+     * @memberof AuthService
+     */
     decodeToken(token: string): DecodedToken<Payload> {
         const decoded = this.tokenFactory.decodeToken<Payload>(token)
 
@@ -304,6 +467,13 @@ export class AuthService {
         return decoded
     }
 
+    /**
+     * decode refresh token to get payload
+     *
+     * @param {string} refresh
+     * @return {*}  {DecodedToken<Payload>}
+     * @memberof AuthService
+     */
     decodeRefreshToken(refresh: string): DecodedToken<Payload> {
         const decoded = this.tokenFactory.decodeRefreshToken<Payload>(refresh)
 
@@ -312,6 +482,13 @@ export class AuthService {
         return decoded
     }
 
+    /**
+     * check token 
+     *
+     * @private
+     * @param {DecodedToken<Payload>} decoded
+     * @memberof AuthService
+     */
     private checkToken(decoded: DecodedToken<Payload>) {
         switch(decoded.type) {
             case DecodeType.InvalidToken, DecodeType.IntegtiryError:
@@ -323,6 +500,13 @@ export class AuthService {
         }
     }
 
+    /**
+     * refresh token
+     *
+     * @param {string} token
+     * @return {*}  {Promise<CreatedTokens>}
+     * @memberof AuthService
+     */
     async refreshToken(token: string): Promise<CreatedTokens> {
         const decoded = this.decodeRefreshToken(token)
 

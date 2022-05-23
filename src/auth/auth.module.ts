@@ -10,6 +10,12 @@ import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 
 
+/**
+ * Auth module
+ *
+ * @export
+ * @class AuthModule
+ */
 @Module({
     imports: [
         TypeOrmModule.forFeature([BaseUser, User, Admin, UserSmsCode]),

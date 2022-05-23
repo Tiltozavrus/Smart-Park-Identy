@@ -66,6 +66,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>exception filter for auth controller</p>
+
+            </p>
 
 
             <p class="comment">
@@ -119,12 +126,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/auth/auth.controller.ts:65</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/auth/auth.controller.ts:86</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Creates an instance of AllAuthServiceExceptionsFilter.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -183,14 +192,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="70"
-                            class="link-to-prism">src/auth/auth.controller.ts:70</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="103"
+                            class="link-to-prism">src/auth/auth.controller.ts:103</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>catch exception and return http exception status code</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -266,14 +277,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="89"
-                            class="link-to-prism">src/auth/auth.controller.ts:89</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="130"
+                            class="link-to-prism">src/auth/auth.controller.ts:130</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>switch error to decode it to http exception</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -309,7 +322,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>{HttpException}</p>
+
                     </div>
                 </td>
             </tr>
@@ -327,7 +341,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ArgumentsHost, BadRequestException, Body, CallHandler, Catch, Controller, Delete, ExceptionFilter, ExecutionContext, Get, HttpCode, NestInterceptor, NotFoundException, Param, Post, Put, UseFilters, UseInterceptors,  UnauthorizedException, UseGuards, HttpException, HttpStatus} from &#x27;@nestjs/common&#x27;;
 import { HttpAdapterHost } from &#x27;@nestjs/core&#x27;;
-import { ApiBearerAuth, ApiBody, ApiOperation, ApiParam, ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
+import { ApiBearerAuth, ApiBody, ApiOperation, ApiParam, ApiProduces, ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import e &#x3D; require(&#x27;express&#x27;);
 import { catchError, Observable } from &#x27;rxjs&#x27;;
 import { AuthService, AuthServiceExceptions } from &#x27;./auth.service&#x27;;
@@ -347,7 +361,21 @@ import { Role } from &#x27;./roles&#x27;;
 import { Roles } from &#x27;./roles.decorator&#x27;;
 import { RolesGuard } from &#x27;./roles.guard&#x27;;
 
+/**
+ * Interceptor to catch auth errors
+ *
+ * @class AuthControllerEdrrorInterceptor
+ * @implements {NestInterceptor}
+ */
 class AuthControllerEdrrorInterceptor implements NestInterceptor {
+    /**
+     * interceptor to transorm error to exception
+     *
+     * @param {ExecutionContext} context
+     * @param {CallHandler&lt;any&gt;} next
+     * @return {*}  {(Observable&lt;any&gt; | Promise&lt;Observable&lt;any&gt;&gt;)}
+     * @memberof AuthControllerEdrrorInterceptor
+     */
     intercept(context: ExecutionContext, next: CallHandler&lt;any&gt;): Observable&lt;any&gt; | Promise&lt;Observable&lt;any&gt;&gt; {
         return next.handle()
             .pipe(
@@ -388,12 +416,31 @@ class AuthControllerEdrrorInterceptor implements NestInterceptor {
     }
 }
 
+/**
+ * exception filter for auth controller
+ *
+ * @export
+ * @class AllAuthServiceExceptionsFilter
+ * @implements {ExceptionFilter}
+ */
 @Catch()
 export class AllAuthServiceExceptionsFilter implements ExceptionFilter {
+    /**
+     * Creates an instance of AllAuthServiceExceptionsFilter.
+     * @param {HttpAdapterHost} httpAdapterHost
+     * @memberof AllAuthServiceExceptionsFilter
+     */
     constructor(
         private readonly httpAdapterHost: HttpAdapterHost,
     ) {}
 
+    /**
+     * catch exception and return http exception status code
+     *
+     * @param {*} exception
+     * @param {ArgumentsHost} host
+     * @memberof AllAuthServiceExceptionsFilter
+     */
     catch(exception: any, host: ArgumentsHost) {
         const {httpAdapter} &#x3D; this.httpAdapterHost
         const ctx &#x3D; host.switchToHttp()
@@ -413,6 +460,14 @@ export class AllAuthServiceExceptionsFilter implements ExceptionFilter {
         httpAdapter.reply(ctx.getResponse(), resp, statusCode)
     }
 
+    /**
+     * switch error to decode it to http exception
+     *
+     * @private
+     * @param {*} e
+     * @return {*}  {HttpException}
+     * @memberof AllAuthServiceExceptionsFilter
+     */
     private switchError(e: any): HttpException {
         switch(e) {
             case AuthServiceExceptions.UserExist:
@@ -442,16 +497,32 @@ export class AllAuthServiceExceptionsFilter implements ExceptionFilter {
     }
 }
 
+/**
+ *
+ * class responce for http controller of working with auth
+ * @export
+ * @class AuthController
+ */
 @UseInterceptors(AuthControllerEdrrorInterceptor)
 @ApiTags(&#x27;auth&#x27;)
 @Controller(&#x27;auth&#x27;)
 export class AuthController {
+    /**
+     * Creates an instance of AuthController.
+     * @param {AuthService} authService
+     * @memberof AuthController
+     */
     constructor(private readonly authService: AuthService) {}
 
+    /**
+     * create user
+     *
+     * @param {CreateUserDto} createUserDto
+     * @return {*}  {Promise&lt;UserCreateResp&gt;}
+     * @memberof AuthController
+     */
     @Post(&#x27;/user&#x27;)
-    @Roles(Role.Admin)
-    @UseGuards(RolesGuard)
-    @ApiOperation({summary: &quot;Create user&quot;})
+    @ApiOperation({summary: &quot;Create user&quot;,})
     @ApiResponse({status: 400, description: &quot;User exist&quot;})
     @ApiResponse({status: 403, description: &quot;You are not admin&quot;})
     @ApiResponse({status: 201, description: &quot;User created&quot;, type: UserCreateResp})
@@ -461,6 +532,12 @@ export class AuthController {
         return new UserCreateResp(await this.authService.createUser(createUserDto))
     }
 
+    /**
+     * delete user
+     *
+     * @param {number} id
+     * @memberof AuthController
+     */
     @Delete(&#x27;/user/:id&#x27;)
     @Roles(Role.Admin)
     @UseGuards(RolesGuard)
@@ -476,13 +553,19 @@ export class AuthController {
         }
     }
 
+    /**
+     * return list of users
+     *
+     * @return {*}  {Promise&lt;GetUsersResp[]&gt;}
+     * @memberof AuthController
+     */
     @Get(&#x27;/user&#x27;)
     @Roles(Role.Admin)
     @UseGuards(RolesGuard)
     @ApiOperation({summary: &quot;get users&quot;})
     @ApiResponse({status: 200, description: &quot;&quot;, type: [GetUsersResp]})
     @ApiBearerAuth()
-    async getUser(): Promise&lt;GetUsersResp[]&gt; {
+    async getUsers(): Promise&lt;GetUsersResp[]&gt; {
         return (await this.authService.getUsers()).map(
             (user) &#x3D;&gt; {
                 return new GetUsersResp(user)
@@ -490,6 +573,36 @@ export class AuthController {
         )
     }
 
+    /**
+     * return user by id
+     *
+     * @param {number} id
+     * @return {*} 
+     * @memberof AuthController
+     */
+    @Get(&#x27;/user/:id&#x27;)
+    @ApiOperation({summary: &quot;get user&quot;})
+    @ApiResponse({status: 200, description: &quot;&quot;, type: GetUsersResp})
+    @ApiParam({name: &#x27;id&#x27;, type: () &#x3D;&gt; Number, required: true})
+    @ApiBearerAuth()
+    async getUser(
+        @Param(&#x27;id&#x27;) id: number
+    ) {
+        const user &#x3D; await this.authService.getUser(id)
+        if(!user) {
+            throw new NotFoundException(&#x27;User not found&#x27;)
+        }
+        return new GetUsersResp(user)
+    }
+
+    /**
+     * update user by id
+     *
+     * @param {number} id
+     * @param {UpdateUserDto} req
+     * @return {*}  {Promise&lt;GetUsersResp&gt;}
+     * @memberof AuthController
+     */
     @Put(&quot;/user/:id&quot;)
     @Roles(Role.Admin)
     @UseGuards(RolesGuard)
@@ -504,6 +617,13 @@ export class AuthController {
         return new GetUsersResp(await this.authService.updateUser(id, req))
     }
 
+    /**
+     * create admin
+     *
+     * @param {CreateAdminDto} req
+     * @return {*}  {Promise&lt;CreateAdminResp&gt;}
+     * @memberof AuthController
+     */
     @Post(&quot;/admin&quot;)
     @Roles(Role.Admin)
     @UseGuards(RolesGuard)
@@ -517,6 +637,14 @@ export class AuthController {
         return new CreateAdminResp(await this.authService.createAdmin(req))
     }
 
+    /**
+     * update admin by id
+     *
+     * @param {number} id
+     * @param {UpdateAdminDto} req
+     * @return {*} 
+     * @memberof AuthController
+     */
     @Put(&quot;/admin/:id&quot;)
     @Roles(Role.Admin)
     @UseGuards(RolesGuard)
@@ -531,6 +659,12 @@ export class AuthController {
         return new GetAdminResp(await this.authService.updateAdmin(id, req))
     }
 
+    /**
+     * delete admin by id
+     *
+     * @param {number} id
+     * @memberof AuthController
+     */
     @Delete(&quot;/admin/:id&quot;)
     @Roles(Role.Admin)
     @UseGuards(RolesGuard)
@@ -546,6 +680,12 @@ export class AuthController {
         }
     }
 
+    /**
+     *
+     * return list of admins
+     * @return {*}  {Promise&lt;GetAdminResp[]&gt;}
+     * @memberof AuthController
+     */
     @Get(&quot;/admin&quot;)
     @Roles(Role.Admin)
     @UseGuards(RolesGuard)
@@ -560,12 +700,28 @@ export class AuthController {
         )
     }
 
+    /**
+     * test method to get sms code
+     *
+     * @param {*} phone
+     * @return {*} 
+     * @memberof AuthController
+     */
     @Post(&quot;/testSms/:phone&quot;)
     @ApiParam({name: &quot;phone&quot;, type: String})
+    @ApiProduces(&#x27;text/plain&#x27;)
+    @ApiResponse({type: String})
     async createSms(@Param(&quot;phone&quot;) phone) {
         return await this.authService.createSmsCode(phone)
     }
 
+    /**
+     * login admin
+     *
+     * @param {LoginAdminDto} req
+     * @return {*}  {Promise&lt;CreateTokenResp&gt;}
+     * @memberof AuthController
+     */
     @Post(&quot;/admin/login&quot;)
     @ApiResponse({type: CreateTokenResp, status: 201})
     @ApiResponse({status: 400, description: &quot;failed auth&quot;})
@@ -576,6 +732,13 @@ export class AuthController {
         return tokens
     }
     
+    /**
+     * login user
+     *
+     * @param {LoginUserDto} req
+     * @return {*}  {Promise&lt;CreateTokenResp&gt;}
+     * @memberof AuthController
+     */
     @Post(&quot;/user/login&quot;)
     @ApiBody({type: LoginUserDto})
     @ApiResponse({status: 201, type: CreateTokenResp})
@@ -586,6 +749,12 @@ export class AuthController {
         return tokens
     }
 
+    /**
+     * check token 
+     *
+     * @param {CheckTokenDto} req
+     * @memberof AuthController
+     */
     @Post(&quot;/checkToken&quot;)
     @ApiBody({type: CheckTokenDto})
     @ApiResponse({status: 200})
@@ -595,6 +764,13 @@ export class AuthController {
         this.authService.decodeToken(req.token)
     }
 
+    /**
+     * refresh token
+     *
+     * @param {RefreshTokenDto} req
+     * @return {*}  {Promise&lt;CreateTokenResp&gt;}
+     * @memberof AuthController
+     */
     @Post(&quot;/refreshToken&quot;)
     @ApiBody({type: RefreshTokenDto})
     @ApiResponse({status: 201, type: CreateTokenResp})

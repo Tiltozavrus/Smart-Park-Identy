@@ -66,6 +66,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>get user responce</p>
+
+            </p>
 
 
 
@@ -115,12 +122,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">src/auth/dto/get-user.dto.ts:4</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/auth/dto/get-user.dto.ts:10</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Creates an instance of GetUsersResp.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -186,10 +195,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/auth/dto/get-user.dto.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/auth/dto/get-user.dto.ts:31</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>user id</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -221,10 +236,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/auth/dto/get-user.dto.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/auth/dto/get-user.dto.ts:53</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>user name</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -256,10 +277,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/auth/dto/get-user.dto.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/auth/dto/get-user.dto.ts:42</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>user phoneNubmer</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -278,23 +305,52 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &quot;@nestjs/swagger&quot;
 
 
+/**
+ * get user responce
+ *
+ * @export
+ * @class GetUsersResp
+ */
 export class GetUsersResp {
+    /**
+     * Creates an instance of GetUsersResp.
+     * @param {{id: number, phoneNumber: string, name: string}} user
+     * @memberof GetUsersResp
+     */
     constructor(user: {id: number, phoneNumber: string, name: string}) {
         this.id &#x3D; user.id
         this.phoneNumber &#x3D; user.phoneNumber
         this.name &#x3D; user.name
     }
     
+    /**
+     * user id
+     *
+     * @type {number}
+     * @memberof GetUsersResp
+     */
     @ApiProperty({
         example: 1,
     })
     id: number
 
+    /**
+     * user phoneNubmer
+     *
+     * @type {string}
+     * @memberof GetUsersResp
+     */
     @ApiProperty({
         example: &quot;81375461323&quot;,
     })
     phoneNumber: string
 
+    /**
+     * user name
+     *
+     * @type {string}
+     * @memberof GetUsersResp
+     */
     @ApiProperty({
         example: &quot;Some name&quot;
     })

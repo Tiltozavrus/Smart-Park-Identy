@@ -66,6 +66,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>create user responce</p>
+
+            </p>
 
 
 
@@ -115,12 +122,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/auth/dto/create-user.dto.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/auth/dto/create-user.dto.ts:41</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Creates an instance of UserCreateResp.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -186,10 +195,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/auth/dto/create-user.dto.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/auth/dto/create-user.dto.ts:62</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>user id</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -221,10 +236,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/auth/dto/create-user.dto.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/auth/dto/create-user.dto.ts:84</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>user name</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -256,10 +277,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/auth/dto/create-user.dto.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/auth/dto/create-user.dto.ts:73</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>user phone nubmer</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -278,36 +305,83 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &quot;@nestjs/swagger&quot;
 import { IsPhoneNumber, IsString, Length } from &quot;class-validator&quot;
 
+/**
+ * Create user body
+ *
+ * @export
+ * @class CreateUserDto
+ */
 export class CreateUserDto {
+    /**
+     * phoneNumber
+     *
+     * @type {string}
+     * @memberof CreateUserDto
+     */
     @ApiProperty({
             example: &quot;+7 (936) 134 14 24&quot;,
     })
     @IsPhoneNumber(&quot;RU&quot;)
     phoneNumber: string
 
+    /**
+     * name of user
+     *
+     * @type {string}
+     * @memberof CreateUserDto
+     */
     @ApiProperty()
     @IsString({message: &quot;should be a string&quot;})
     name: string
 }
 
 
+/**
+ * create user responce
+ *
+ * @export
+ * @class UserCreateResp
+ */
 export class UserCreateResp {
+    /**
+     * Creates an instance of UserCreateResp.
+     * @param {{id: number, phoneNumber: string, name: string}} user
+     * @memberof UserCreateResp
+     */
     constructor(user: {id: number, phoneNumber: string, name: string}) {
         this.id &#x3D; user.id
         this.phoneNumber &#x3D; user.phoneNumber
         this.name &#x3D; user.name
     }
 
+    /**
+     * user id
+     *
+     * @type {number}
+     * @memberof UserCreateResp
+     */
     @ApiProperty({
         example: 1,
     })
     id: number
 
+    /**
+     * user phone nubmer
+     *
+     * @type {string}
+     * @memberof UserCreateResp
+     */
     @ApiProperty({
         example: &quot;81375461323&quot;,
     })
     phoneNumber: string;
 
+    /**
+     * user name
+     *
+     * @type {string}
+     * @memberof UserCreateResp
+     */
     @ApiProperty({
         example: &quot;Some name&quot;
     })

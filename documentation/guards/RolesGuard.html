@@ -64,6 +64,13 @@
             </p>
 
 
+                <p class="comment">
+                <h3>Description</h3>
+                </p>
+                <p class="comment">
+                    <p>class to validate role to access to method</p>
+
+                </p>
 
 
 
@@ -107,12 +114,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/auth/roles.guard.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/auth/roles.guard.ts:17</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Creates an instance of RolesGuard.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -182,14 +191,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">src/auth/roles.guard.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">src/auth/roles.guard.ts:33</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>check role of user to decide can they launch method</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -225,7 +236,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>{(boolean | Promise<boolean> | Observable<boolean>)}</p>
+
                     </div>
                 </td>
             </tr>
@@ -244,10 +256,30 @@ import { AuthService, AuthServiceExceptions } from &quot;./auth.service&quot;;
 import { Role } from &quot;./roles&quot;;
 import { ROLES_KEY } from &quot;./roles.decorator&quot;;
 
+/**
+ * class to validate role to access to method
+ *
+ * @export
+ * @class RolesGuard
+ * @implements {CanActivate}
+ */
 @Injectable()
 export class RolesGuard implements CanActivate {
+    /**
+     * Creates an instance of RolesGuard.
+     * @param {Reflector} reflector
+     * @param {AuthService} authService
+     * @memberof RolesGuard
+     */
     constructor (private reflector: Reflector, private readonly authService: AuthService) {}
 
+    /**
+     * check role of user to decide can they launch method
+     *
+     * @param {ExecutionContext} context
+     * @return {*}  {(boolean | Promise&lt;boolean&gt; | Observable&lt;boolean&gt;)}
+     * @memberof RolesGuard
+     */
     canActivate(context: ExecutionContext): boolean | Promise&lt;boolean&gt; | Observable&lt;boolean&gt; {
         const requiredRoles &#x3D; this.reflector.getAllAndOverride&lt;Role[]&gt;(
             ROLES_KEY,
@@ -269,6 +301,7 @@ export class RolesGuard implements CanActivate {
             if(!requiredRoles) {
                 return true
             }
+
 
             return requiredRoles.some((role) &#x3D;&gt; decoded.payload.payload.role.includes(role))
         } catch(e) {

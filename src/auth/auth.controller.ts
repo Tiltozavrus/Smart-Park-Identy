@@ -20,7 +20,21 @@ import { Role } from './roles';
 import { Roles } from './roles.decorator';
 import { RolesGuard } from './roles.guard';
 
+/**
+ * Interceptor to catch auth errors
+ *
+ * @class AuthControllerEdrrorInterceptor
+ * @implements {NestInterceptor}
+ */
 class AuthControllerEdrrorInterceptor implements NestInterceptor {
+    /**
+     * interceptor to transorm error to exception
+     *
+     * @param {ExecutionContext} context
+     * @param {CallHandler<any>} next
+     * @return {*}  {(Observable<any> | Promise<Observable<any>>)}
+     * @memberof AuthControllerEdrrorInterceptor
+     */
     intercept(context: ExecutionContext, next: CallHandler<any>): Observable<any> | Promise<Observable<any>> {
         return next.handle()
             .pipe(
@@ -61,12 +75,31 @@ class AuthControllerEdrrorInterceptor implements NestInterceptor {
     }
 }
 
+/**
+ * exception filter for auth controller
+ *
+ * @export
+ * @class AllAuthServiceExceptionsFilter
+ * @implements {ExceptionFilter}
+ */
 @Catch()
 export class AllAuthServiceExceptionsFilter implements ExceptionFilter {
+    /**
+     * Creates an instance of AllAuthServiceExceptionsFilter.
+     * @param {HttpAdapterHost} httpAdapterHost
+     * @memberof AllAuthServiceExceptionsFilter
+     */
     constructor(
         private readonly httpAdapterHost: HttpAdapterHost,
     ) {}
 
+    /**
+     * catch exception and return http exception status code
+     *
+     * @param {*} exception
+     * @param {ArgumentsHost} host
+     * @memberof AllAuthServiceExceptionsFilter
+     */
     catch(exception: any, host: ArgumentsHost) {
         const {httpAdapter} = this.httpAdapterHost
         const ctx = host.switchToHttp()
@@ -86,6 +119,14 @@ export class AllAuthServiceExceptionsFilter implements ExceptionFilter {
         httpAdapter.reply(ctx.getResponse(), resp, statusCode)
     }
 
+    /**
+     * switch error to decode it to http exception
+     *
+     * @private
+     * @param {*} e
+     * @return {*}  {HttpException}
+     * @memberof AllAuthServiceExceptionsFilter
+     */
     private switchError(e: any): HttpException {
         switch(e) {
             case AuthServiceExceptions.UserExist:
@@ -115,12 +156,30 @@ export class AllAuthServiceExceptionsFilter implements ExceptionFilter {
     }
 }
 
+/**
+ *
+ * class responce for http controller of working with auth
+ * @export
+ * @class AuthController
+ */
 @UseInterceptors(AuthControllerEdrrorInterceptor)
 @ApiTags('auth')
 @Controller('auth')
 export class AuthController {
+    /**
+     * Creates an instance of AuthController.
+     * @param {AuthService} authService
+     * @memberof AuthController
+     */
     constructor(private readonly authService: AuthService) {}
 
+    /**
+     * create user
+     *
+     * @param {CreateUserDto} createUserDto
+     * @return {*}  {Promise<UserCreateResp>}
+     * @memberof AuthController
+     */
     @Post('/user')
     @ApiOperation({summary: "Create user",})
     @ApiResponse({status: 400, description: "User exist"})
@@ -132,6 +191,12 @@ export class AuthController {
         return new UserCreateResp(await this.authService.createUser(createUserDto))
     }
 
+    /**
+     * delete user
+     *
+     * @param {number} id
+     * @memberof AuthController
+     */
     @Delete('/user/:id')
     @Roles(Role.Admin)
     @UseGuards(RolesGuard)
@@ -147,6 +212,12 @@ export class AuthController {
         }
     }
 
+    /**
+     * return list of users
+     *
+     * @return {*}  {Promise<GetUsersResp[]>}
+     * @memberof AuthController
+     */
     @Get('/user')
     @Roles(Role.Admin)
     @UseGuards(RolesGuard)
@@ -161,6 +232,13 @@ export class AuthController {
         )
     }
 
+    /**
+     * return user by id
+     *
+     * @param {number} id
+     * @return {*} 
+     * @memberof AuthController
+     */
     @Get('/user/:id')
     @ApiOperation({summary: "get user"})
     @ApiResponse({status: 200, description: "", type: GetUsersResp})
@@ -176,6 +254,14 @@ export class AuthController {
         return new GetUsersResp(user)
     }
 
+    /**
+     * update user by id
+     *
+     * @param {number} id
+     * @param {UpdateUserDto} req
+     * @return {*}  {Promise<GetUsersResp>}
+     * @memberof AuthController
+     */
     @Put("/user/:id")
     @Roles(Role.Admin)
     @UseGuards(RolesGuard)
@@ -190,6 +276,13 @@ export class AuthController {
         return new GetUsersResp(await this.authService.updateUser(id, req))
     }
 
+    /**
+     * create admin
+     *
+     * @param {CreateAdminDto} req
+     * @return {*}  {Promise<CreateAdminResp>}
+     * @memberof AuthController
+     */
     @Post("/admin")
     @Roles(Role.Admin)
     @UseGuards(RolesGuard)
@@ -203,6 +296,14 @@ export class AuthController {
         return new CreateAdminResp(await this.authService.createAdmin(req))
     }
 
+    /**
+     * update admin by id
+     *
+     * @param {number} id
+     * @param {UpdateAdminDto} req
+     * @return {*} 
+     * @memberof AuthController
+     */
     @Put("/admin/:id")
     @Roles(Role.Admin)
     @UseGuards(RolesGuard)
@@ -217,6 +318,12 @@ export class AuthController {
         return new GetAdminResp(await this.authService.updateAdmin(id, req))
     }
 
+    /**
+     * delete admin by id
+     *
+     * @param {number} id
+     * @memberof AuthController
+     */
     @Delete("/admin/:id")
     @Roles(Role.Admin)
     @UseGuards(RolesGuard)
@@ -232,6 +339,12 @@ export class AuthController {
         }
     }
 
+    /**
+     *
+     * return list of admins
+     * @return {*}  {Promise<GetAdminResp[]>}
+     * @memberof AuthController
+     */
     @Get("/admin")
     @Roles(Role.Admin)
     @UseGuards(RolesGuard)
@@ -246,6 +359,13 @@ export class AuthController {
         )
     }
 
+    /**
+     * test method to get sms code
+     *
+     * @param {*} phone
+     * @return {*} 
+     * @memberof AuthController
+     */
     @Post("/testSms/:phone")
     @ApiParam({name: "phone", type: String})
     @ApiProduces('text/plain')
@@ -254,6 +374,13 @@ export class AuthController {
         return await this.authService.createSmsCode(phone)
     }
 
+    /**
+     * login admin
+     *
+     * @param {LoginAdminDto} req
+     * @return {*}  {Promise<CreateTokenResp>}
+     * @memberof AuthController
+     */
     @Post("/admin/login")
     @ApiResponse({type: CreateTokenResp, status: 201})
     @ApiResponse({status: 400, description: "failed auth"})
@@ -264,6 +391,13 @@ export class AuthController {
         return tokens
     }
     
+    /**
+     * login user
+     *
+     * @param {LoginUserDto} req
+     * @return {*}  {Promise<CreateTokenResp>}
+     * @memberof AuthController
+     */
     @Post("/user/login")
     @ApiBody({type: LoginUserDto})
     @ApiResponse({status: 201, type: CreateTokenResp})
@@ -274,6 +408,12 @@ export class AuthController {
         return tokens
     }
 
+    /**
+     * check token 
+     *
+     * @param {CheckTokenDto} req
+     * @memberof AuthController
+     */
     @Post("/checkToken")
     @ApiBody({type: CheckTokenDto})
     @ApiResponse({status: 200})
@@ -283,6 +423,13 @@ export class AuthController {
         this.authService.decodeToken(req.token)
     }
 
+    /**
+     * refresh token
+     *
+     * @param {RefreshTokenDto} req
+     * @return {*}  {Promise<CreateTokenResp>}
+     * @memberof AuthController
+     */
     @Post("/refreshToken")
     @ApiBody({type: RefreshTokenDto})
     @ApiResponse({status: 201, type: CreateTokenResp})

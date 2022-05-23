@@ -66,6 +66,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Update user body</p>
+
+            </p>
 
 
 
@@ -138,10 +145,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/auth/dto/update-admin.dto.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/auth/dto/update-admin.dto.ts:20</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>email of user</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -174,10 +187,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/auth/dto/update-admin.dto.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/auth/dto/update-admin.dto.ts:31</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>user password</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -196,12 +215,30 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &quot;@nestjs/swagger&quot;
 import { IsEmail, IsString, ValidateIf } from &quot;class-validator&quot;
 
+/**
+ * Update user body
+ *
+ * @export
+ * @class UpdateAdminDto
+ */
 export class UpdateAdminDto {
+    /**
+     * email of user
+     *
+     * @type {string}
+     * @memberof UpdateAdminDto
+     */
     @ApiProperty({example: &quot;user.name@example.com&quot;, required: false})
     @ValidateIf( o &#x3D;&gt; o.email)
     @IsEmail({},{message: &quot;email is not valid&quot;})
     email?: string
 
+    /**
+     * user password
+     *
+     * @type {string}
+     * @memberof UpdateAdminDto
+     */
     @ApiProperty({example: &quot;qwerty&quot;, required: false})
     @ValidateIf(o &#x3D;&gt; o.name)
     @IsString({message: &quot;&quot;})

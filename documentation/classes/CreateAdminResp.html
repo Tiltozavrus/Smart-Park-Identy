@@ -66,6 +66,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>create admin responce</p>
+
+            </p>
 
 
 
@@ -112,12 +119,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/auth/dto/create-admin.dto.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/auth/dto/create-admin.dto.ts:38</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Creates an instance of CreateAdminResp.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -183,10 +192,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/auth/dto/create-admin.dto.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/auth/dto/create-admin.dto.ts:64</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>admin email</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -218,10 +233,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/auth/dto/create-admin.dto.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/auth/dto/create-admin.dto.ts:55</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>admin id</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -240,24 +261,65 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &quot;@nestjs/swagger&quot;;
 import { IsEmail, IsString } from &quot;class-validator&quot;;
 
+/**
+ * create admin req body
+ *
+ * @export
+ * @class CreateAdminDto
+ */
 export class CreateAdminDto {
+    /**
+     * email
+     *
+     * @type {string}
+     * @memberof CreateAdminDto
+     */
     @ApiProperty({example: &quot;user.name@example.com&quot;})
     @IsEmail({},{message: &quot;email is not valid&quot;})
     email: string
 
+    /**
+     * password
+     *
+     * @type {string}
+     * @memberof CreateAdminDto
+     */
     @ApiProperty({example: &quot;qwerty&quot;})
     @IsString({message: &quot;&quot;})
     password: string
 }
 
+/**
+ * create admin responce
+ *
+ * @export
+ * @class CreateAdminResp
+ */
 export class CreateAdminResp {
+    /**
+     * Creates an instance of CreateAdminResp.
+     * @param {{id: number, email: string}} admin
+     * @memberof CreateAdminResp
+     */
     constructor(admin: {id: number, email: string}) {
         this.id &#x3D; admin.id
         this.email &#x3D; admin.email
     }   
+    /**
+     * admin id
+     *
+     * @type {number}
+     * @memberof CreateAdminResp
+     */
     @ApiProperty({example: 1})
     id: number
 
+    /**
+     * admin email
+     *
+     * @type {string}
+     * @memberof CreateAdminResp
+     */
     @ApiProperty({example: &quot;user.name@example.com&quot;})
     email: string
 }</code></pre>

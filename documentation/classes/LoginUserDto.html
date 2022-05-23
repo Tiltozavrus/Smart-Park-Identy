@@ -66,6 +66,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Login user body</p>
+
+            </p>
 
 
 
@@ -135,10 +142,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/auth/dto/login-user.dto.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/auth/dto/login-user.dto.ts:29</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>sms code</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -170,10 +183,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/auth/dto/login-user.dto.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/auth/dto/login-user.dto.ts:19</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>phoneNumber</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -192,11 +211,29 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IsPhoneNumber, IsString } from &quot;class-validator&quot;;
 import { ApiProperty } from &quot;@nestjs/swagger&quot;;
 
+/**
+ * Login user body
+ *
+ * @export
+ * @class LoginUserDto
+ */
 export class LoginUserDto {
+    /**
+     * phoneNumber
+     *
+     * @type {string}
+     * @memberof LoginUserDto
+     */
     @ApiProperty({example: &quot;+7 (936) 134 14 24&quot;})
     @IsPhoneNumber(&quot;RU&quot;)
     phoneNumber: string
 
+    /**
+     * sms code
+     *
+     * @type {string}
+     * @memberof LoginUserDto
+     */
     @ApiProperty({example: &quot;0000&quot;})
     @IsString()
     code: string

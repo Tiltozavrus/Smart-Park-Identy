@@ -66,6 +66,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>check token body</p>
+
+            </p>
 
 
 
@@ -132,10 +139,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/auth/dto/check-token.dto.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/auth/dto/check-token.dto.ts:23</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>jwt token</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -154,7 +167,19 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &quot;@nestjs/swagger&quot;;
 import { IsJWT } from &quot;class-validator&quot;;
 
+/**
+ * check token body
+ *
+ * @export
+ * @class CheckTokenDto
+ */
 export class CheckTokenDto {
+    /**
+     * jwt token
+     *
+     * @type {string}
+     * @memberof CheckTokenDto
+     */
     @ApiProperty(
         {
             example: &quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJwYXlsb2FkIjp7InJvbGUiOiJhZG1pbiIsInVzZXJJZCI6Mn0sImlzc3VlZCI6MTY0NzA3MzI5MTk4NiwiZXhwaXJlcyI6MTY0NzE1OTY5MTk4Nn0.v_9Tx8tWre8VkqtF3eaxN8BvNmBstFBwSKYzuoIxd00nBV7_KCYlkOjXxJ4F0AfUvrSoyv1COdFF2K_cG8YlxA&quot;
